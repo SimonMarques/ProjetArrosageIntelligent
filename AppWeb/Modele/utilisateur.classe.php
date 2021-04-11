@@ -1,12 +1,12 @@
 <?php 
 
-class Administrateur{
+class Utilisateur{
     public $login = null;
     public $password = null;
     public $dbh =null;
 
     function __construct() {
-        $dsn = 'mysql:dbname=projet_web_3il;host=127.0.0.1';
+        $dsn = 'mysql:dbname=arrosageintelligent;host=127.0.0.1';
         $user = 'root';
         $password = '';
         $dbhBDD = null;
@@ -20,9 +20,9 @@ class Administrateur{
     }
 
 /**
- * Constructeur de l'administrateur avec les variables passées en parem
- * @param : $login Login de l'administrateur
- * @param : $login Login de l'administrateur
+ * Constructeur de l'utilisateur avec les variables passées en parem
+ * @param : $login Login de l'utilisateur
+ * @param : $login Login de l'utilisateur
  */
 function dataConstruct($login,$password){
     $mdpAdmin = $this->tryConnection($login,$password);
@@ -35,17 +35,16 @@ function dataConstruct($login,$password){
 }
 
 /**
- * Etablit la connection de l'administrateur
- * @param $login Login de l'administrateur
- * @param : $login Login de l'administrateur
+ * Etablit la connection de l'utilisateur
+ * @param $login Login de l'utilisateur
+ * @param : $login Login de l'utilisateur
  * 
  * @return : Connection réussi : True, Erreur de connection : false
  */
 function tryConnection($login,$password){
 try{
-    $dataAdministrateur = array();
     $sql = "SELECT login, mdp 
-    FROM administrateur 
+    FROM utilisateurs
     WHERE login = '$login'";
     $sth = $this->dbh->prepare($sql);
     $sth->execute();
@@ -65,8 +64,8 @@ try{
 }
 
 /**
- * Créer un administrateur
- * @param $login Login de l'administrateur à créer
+ * Créer un utilisateur
+ * @param $login Login de l'utilisateur à créer
  * @param $mdp Mot de pas de l'utilisateur à créer
  * 
  * @return $successCreate succès : true , erreur : false
@@ -74,7 +73,7 @@ try{
 function createAdmin($login, $mdp){
     try{
     $passwordHash = password_hash($mdp, PASSWORD_BCRYPT);
-    $sqlCreate = "INSERT INTO administrateur (login,mdp)
+    $sqlCreate = "INSERT INTO utilisateurs (login,mdp)
                 VALUES('$login','$passwordHash')";
     $successCreate = $this->dbh->exec($sqlCreate); 
     return $successCreate;
@@ -85,15 +84,15 @@ function createAdmin($login, $mdp){
 }
 
 /**
- * Suppression d'un administrateur
- * @param $login Login de l'administrateur à supprimer
+ * Suppression d'un utilisateur
+ * @param $login Login de l'utilisateur à supprimer
  * 
  * @return $successDelete succès : true , erreur : false
  */
 function deleteAdmin($login){
     try{
         $sqlDelete = "DELETE 
-                    FROM administrateur
+                    FROM utilisateurs
                     WHERE login = '$login'";
         $successDelete = $this->dbh->exec($sqlDelete);
         return $successDelete;

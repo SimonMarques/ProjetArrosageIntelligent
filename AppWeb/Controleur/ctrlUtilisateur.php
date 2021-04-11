@@ -1,7 +1,7 @@
 <?php
-    require_once('..\Model\administrator.classe.php');
+    require_once('..\Modele\utilisateur.classe.php');
     $data = $_POST;
-    $admin = new Administrateur();
+    $admin = new Utilisateur();
     session_start();
     switch($_POST['event']){
       case 'log':  
@@ -22,7 +22,7 @@
         }
         $createOrNot = $admin->createAdmin($_POST['login'],$_POST['mdp']);
         if(!$createOrNot){
-            echo json_encode(array("Check"=>"false", "Text"=>"Erreur de création de l'administrateur!"));
+            echo json_encode(array("Check"=>"false", "Text"=>"Erreur : échec création"));
         } else{
             $_SESSION['login'] = $_POST['login']; 
             echo json_encode(array("Check"=>"true"));
