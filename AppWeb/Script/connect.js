@@ -1,4 +1,35 @@
+// Gestion de l'affichage dynamique de la page
+let tabs = document.querySelectorAll(".tab-link:not(.desactive)");
 
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    unSelectAll();
+    tab.classList.add("active");
+    let ref = tab.getAttribute("data-ref");
+    document.getElementById("login").value = '';
+    document.getElementById("password").value = '';
+    document.getElementById("loginCreate").value = '';
+    document.getElementById("passwordCreate").value = '';
+    document.getElementById("passwordConfirmCreate").value = '';
+    document
+      .querySelector(`.tab-body[data-id="${ref}"]`)
+      .classList.add("active");
+  });
+});
+
+function unSelectAll() {
+  tabs.forEach((tab) => {
+    tab.classList.remove("active");
+  });
+  let tabbodies = document.querySelectorAll(".tab-body");
+  tabbodies.forEach((tab) => {
+    tab.classList.remove("active");
+  });
+}
+
+document.querySelector(".tab-link.active").click();
+
+// Fonction permettant de faire la connexion et l'inscription
 function connection() {
 
     var idLogin = document.getElementById("login");
@@ -35,14 +66,24 @@ function connection() {
 }
 
 function create(){
-    var idLogin = document.getElementById("login");
-    var idMpd = document.getElementById("password");
+    var idLogin = document.getElementById("loginCreate");
+    var idMpd = document.getElementById("passwordCreate");
+    var idMpdConfirm = document.getElementById("passwordConfirmCreate");
     var login = idLogin.value;
     var mdp = idMpd.value;
+    var mdpConfirm = idMpdConfirm.value;
+    if(mdp != mdpConfirm){
+        alert("Les 2 mots de passe sont différents!");
+        idLogin.value = "";
+        idMpd.value = "";
+        idMpdConfirm.value = "";
+        return;
+    }
     if(login === "" || mdp === ""){
         alert("Un des deux champs est vide !");
         idLogin.value = "";
         idMpd.value = "";
+        idMpdConfirm.value = "";
         return;
     }
     var ajax = new XMLHttpRequest();
