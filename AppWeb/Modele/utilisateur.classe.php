@@ -1,5 +1,9 @@
 <?php 
 
+/**
+ * Classe des utilisateurs
+ */
+
 class Utilisateur{
     public $login = null;
     public $password = null;
