@@ -68,6 +68,20 @@ try{
 }
 
 /**
+ * Retourne l'ID de la personne qui s'est connecté ou crée
+ * @param $login Login de l'utilisateur
+ */
+function getId($login){
+    $sql="SELECT id
+          FROM utilisateurs
+          WHERE login = '$login'";
+    $sth = $this->dbh->prepare($sql);
+    $sth->execute();
+    $id = $sth->fetch(PDO::FETCH_ASSOC);
+    return $id;     
+}
+
+/**
  * Créer un utilisateur
  * @param $login Login de l'utilisateur à créer
  * @param $mdp Mot de pas de l'utilisateur à créer
