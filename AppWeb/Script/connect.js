@@ -22,7 +22,7 @@ function unSelectAll() {
     tab.classList.remove("active");
   });
   let tabbodies = document.querySelectorAll(".tab-body");
-  tabbodies.forEach((tab) => {
+  tabbodies.forEach((tab) => {//permet de gerer actif ou inactif
     tab.classList.remove("active");
   });
 }
