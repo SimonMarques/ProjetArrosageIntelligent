@@ -20,7 +20,8 @@ class Circuit{
 
     /**
      * Retourne les ID des circuits pour l'utilisateur passé en paramètre
-     * @param idUser ID de l'utilisateur
+     * @param $idUser ID de l'utilisateur
+     * @return $idCircuits Tableau contenant l'ensemble des circuits de l'utilisateur
      */
     function getCircuit($idUser){
         $sql ="SELECT id, nom
@@ -33,18 +34,33 @@ class Circuit{
     }
     
     /**
-     * Retourne les conditions defini pour un circuit passé en paremètre
+     * Retourne l'ensemble des vannes du circuit dont l'ID est passé en paramètre
+     * @param $idCircuit ID du circuit
+     * @return $dataVannesCircuit Tableau contenant l'ensemble des vannes du circuit
+     */
+
+     function getVannes($idCircuit){
+         $sqlGetVannes = "SELECT id, nom
+                          FROM vannes
+                          WHERE idCircuit = '$idCircuit'";
+        $sth = $this->dbh->prepare($sqlGetVannes);
+        $sth->execute();
+        $dataVannesCircuit = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $dataVannesCircuit;
+     }
+
+    /**
+     * Retourne le nom du circuit passé en paremètre
      * @param $idCircuit ID du circuit
      */
-    function getDataCircuit($idCircuit){
-        $sqlGetData ="SELECT c.nom, dc.date, dc.debitEau
+    function getNom($idCircuit){
+        $sql ="SELECT c.nom
                FROM circuits as c
-               INNER JOIN datacircuit as dc on c.id = dc.idCircuit
                WHERE c.id = '$idCircuit'";
-        $sth = $this->dbh->prepare($sqlGetData);
+        $sth = $this->dbh->prepare($sql);
         $sth->execute();
-        $dataCircuit = $sth->fetchAll(PDO::FETCH_ASSOC);
-        return $dataCircuit;       
+        $nomCircuit = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $nomCircuit;       
     }
 
     /**

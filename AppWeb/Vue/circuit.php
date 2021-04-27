@@ -3,23 +3,19 @@ require_once('..\Modele\circuit.classe.php');
 $circuit = new Circuit();
 // Récupération des données
 session_start();
-$dataCircuit = $circuit->getDataCircuit($_GET["idCircuit"]);
-// Traitement des données pour l'insertion dans le graphique
-$nomCircuit = $dataCircuit[0]["nom"];
-$nbData = count($dataCircuit)-1;
-$data = "";
-$moyenne = 0;
-for($i=0; $i<=$nbData; $i++){
-    $date = new DateTime($dataCircuit[$i]["date"]);
-    $dataCircuit[$i]["date"] = $date->format('d/m/Y');
-    if($i==0){
-        $data .="{ x :\"".$dataCircuit[$i]["date"]."\", y :".$dataCircuit[$i]["debitEau"]."}";
-    } else {
-        $data .=",{ x :\"".$dataCircuit[$i]["date"]."\", y :".$dataCircuit[$i]["debitEau"]."}";
+$nomCircuit = $circuit->getNom($_GET["idCircuit"]);
+$dataVannes = $circuit->getVannes($_GET["idCircuit"]);
+$nbVannes = count($dataVannes);
+$htmlVannes = '';
+if($dataVannes != 0){
+    for($i=0; $i<=$nbVannes-1; $i++){
+    $htmlVannes .='<div>
+                        <h3>'.$dataVannes[$i]["nom"].'</h3>
+                        <img src="..\Assets\valve.png" alt="" style="width: 5%;">
+                        <button onclick="getVanne('.$dataVannes[$i]["id"].')">Visualiser</button>
+                     </div>';
     }
-    $moyenne = $moyenne + intval($dataCircuit[$i]["debitEau"]) ; 
 }
-$moyenne = $moyenne/($nbData+1);
 ?>
 
 <!DOCTYPE html>
@@ -48,59 +44,10 @@ $moyenne = $moyenne/($nbData+1);
         <header> 
           <section>
             <div >
-                <h1><?php echo $nomCircuit ?>:</h1>
+                <h1><?php echo $nomCircuit[0]["nom"]; ?>:</h1>
             </div>
           </section>
         </header>
-        <div>
-            <canvas id="graphiqueEau" width="300" height="100"></canvas>
-        </div>   
-    </body>
-    <script>
-        var timeFormat = 'DD/MM/YYYY';
-        var config = {
-            type: 'line',
-            data: {
-                datasets: [{ 
-                    label: "Courbe:",
-                    data: [<?php echo $data ?>],
-                    borderColor: "#3e95cd",
-                    fill: false
-                }, { 
-                    label: "Moyenne :",
-                    data: [<?php echo $moyenne ?>],
-                    borderColor: "#8e5ea2",
-                    fill: false
-                }
-                ]
-            },
-            options: {
-                title: {
-                display: true,
-                text: 'Consomation d\'eau sur les 7 dernier jours'
-                },
-                scales:     {
-                xAxes: [{
-                    type:       "time",
-                    time:       {
-                        format: timeFormat,
-                        tooltipFormat: 'll'
-                    },
-                    scaleLabel: {
-                        display:     true,
-                        labelString: 'Date'
-                    }
-                }],
-                yAxes: [{
-                    scaleLabel: {
-                        display:     true,
-                        labelString: 'value'
-                    }
-                }]
-            }
-            }
-            };
-            var ctx = document.getElementById("graphiqueEau").getContext("2d");
-            window.myLine = new Chart(ctx, config);
-    </script>
+        <?php echo $htmlVannes ?>
+
 </html>
