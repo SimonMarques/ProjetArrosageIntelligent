@@ -13,7 +13,7 @@
         <header> 
             <nav>
                 <img id="logo" src="assets/logo.png" alt="logo"/>
-                <div class="titleSite"><a href="index.html">SmartArro</a></div>
+                <div class="titleSite"><a>SmartArro</a></div>
                 <button class="primary-button" onclick="window.location.href = '../login/index.php'">Deconnexion</button>
             </nav>
         </header>
