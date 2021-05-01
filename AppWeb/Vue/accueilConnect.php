@@ -3,8 +3,8 @@
 <!-- Onglet -->
     <head>
         <title>Arrosage</title>
-        <link href="style/style.css" rel="stylesheet" type="text/css">
-        <link rel="icon" href="favicon.ico" />
+        <link href="../Style/style.css" rel="stylesheet" type="text/css">
+        <link rel="icon" href="../Assets/logo.png" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
 
@@ -12,9 +12,9 @@
 
         <header> 
             <nav>
-                <img id="logo" src="assets/logo.png" alt="logo"/>
+                <img id="logo" src="../Assets/logo.png" alt="logo"/>
                 <div class="titleSite"><a>SmartArro</a></div>
-                <button class="primary-button" onclick="window.location.href = '../login/index.php'">Deconnexion</button>
+                <button class="primary-button" onclick="window.location.href = '../index.php'">Deconnexion</button>
             </nav>
         </header>
 
@@ -26,26 +26,26 @@
         </div>
         
         <div id="fonctionAppli-wrapper">
-            <intput class="fonctionAppli-item" onclick="window.location.href = '../login/index.php'">      
-                <img src="assets/ConsomationEau.png" />
+            <intput class="fonctionAppli-item" onclick="window.location.href = './circuits.php'">      
+                <img src="../Assets/ConsomationEau.png" />
                 <h3 class="fonctionAppli-name">Consommation d'eau</h3><br>
                 <p class="fonctionAppli-description">Consultez votre consomation</p>
             </intput>
 
-            <intput class="fonctionAppli-item" onclick="window.location.href = '../login/index.php'">      
-                <img src="assets/Circuit.png" />
+            <intput class="fonctionAppli-item" onclick="window.location.href = './circuits.php'">      
+                <img src="../Assets/Circuit.png" />
                 <h3 class="fonctionAppli-name">Circuit</h3><br>
                 <p class="fonctionAppli-description">Mettez en place votre circuit</p>
             </intput>  
 
             <intput class="fonctionAppli-item" onclick="window.location.href='https://forecast7.com/fr/44d352d58/rodez/'">      
-                <img src="assets/meteo.png" />
+                <img src="../Assets/meteo.png" />
                 <h3 class="fonctionAppli-name">Meteo</h3><br>
                 <p class="fonctionAppli-description">Visualisez la meteo</p>
             </intput>  
 
-            <intput class="fonctionAppli-item" onclick="window.location.href = '../login/index.php'">      
-                <img src="assets/Parametre.png" />
+            <intput class="fonctionAppli-item" onclick="window.location.href = './circuits.php'">      
+                <img src="../Assets/Parametre.png" />
                 <h3 class="fonctionAppli-name">Parametre</h3><br>
                 <p class="fonctionAppli-description">Parametrez votre circuit</p>
             </intput>  

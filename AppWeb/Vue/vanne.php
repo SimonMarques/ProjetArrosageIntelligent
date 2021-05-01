@@ -6,7 +6,10 @@ session_start();
 $data = "";
 $nomCircuit = "";
 $nomVanne = "";
+$cssStatut ="background-color : red;font-style : Copperplate;";
+$txtStatut ="OFF";
 $dataVanne = $vanne->getDataVanne($_GET["idVanne"]);
+$statutVanne = $dataVanne[0]["statut"];
 if($dataVanne != 0){
     $nomVanne = $dataVanne[0]["nom"];
     $nomCircuit = $dataVanne[0]["nomCircuit"];
@@ -19,7 +22,12 @@ if($dataVanne != 0){
             $data .=",{ x :\"".$dataVanne[$i]["date"]."\", y :".$dataVanne[$i]["debitEau"]."}";
         }
     }
-}   
+} 
+// Gestion de l'affichage des statuts
+if($statutVanne === 0){
+    $cssStatut ="background-color : green;font-style : Copperplate;";
+    $txtStatut ="ON";
+}
 // var_dump($dataVanne);
 ?>
 
@@ -33,7 +41,7 @@ if($dataVanne != 0){
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <title><?php echo $nomCircuit ?></title>
         <link rel="icon" href="../Assets/Logo.jpg" />
-        <script src="../Script/circuit.js"></script>
+        <script src="../Script/vanne.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
@@ -55,7 +63,16 @@ if($dataVanne != 0){
         </header>
         <div>
             <canvas id="graphiqueEau" width="300" height="100"></canvas>
-        </div>   
+        </div> 
+        <form id="parameterVanne">
+            <button onclick="changeStatut(<?php  echo $_GET["idVanne"]; ?>,<?php echo $statutVanne; ?>)">Changer le statut</button>
+            <div id="statut" style="<?php echo $cssStatut;?>">
+                <?php echo $txtStatut; ?>
+            </div> 
+            <div id="progSemaine">
+                Programmation Eau :
+            </div> 
+        </form>  
     </body>
     <script>
         var timeFormat = 'DD/MM/YYYY';

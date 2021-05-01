@@ -25,7 +25,7 @@ class Vanne{
      */
 
      function getDataVanne($idVanne){
-         $sqlGetDataVannes = "SELECT v.nom, dv.date, dv.debitEau, c.nom as nomCircuit 
+         $sqlGetDataVannes = "SELECT v.nom, dv.date, dv.debitEau,v.statut , c.nom as nomCircuit
                           FROM vannes as v
                           INNER JOIN datavanne as dv ON v.id = dv.idVanne
                           INNER JOIN circuits as c ON v.idCircuit = c.id
@@ -36,6 +36,18 @@ class Vanne{
         $dataVanne = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $dataVanne;
      }
+
+    function changeStatut($idVanne, $statut){
+        $sql = "UPDATE vannes
+                SET statut = '$statut'
+                WHERE id = '$idVanne'";
+        $nbLine = $this->dbh->exec($sql);
+        if ($nbLine != 1){
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     /**
      * Supprime la vanne passé en paramètre

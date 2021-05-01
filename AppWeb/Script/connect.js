@@ -55,7 +55,7 @@ function connection() {
                 idMpd.value = "";
             }else{
                 // Succès
-                window.location = "../Vue/circuits.php";
+                window.location = "../Vue/accueilConnect.php";
             }
         }
     }
@@ -98,7 +98,7 @@ function create(){
                 idMpd.value = "";
             }else{
                 // Succès
-                window.location = "../Vue/circuits.php";
+                window.location = "../Vue/accueilConnect.php";
             }
         }
     }
