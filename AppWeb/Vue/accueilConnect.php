@@ -10,7 +10,7 @@
 
     <body onload="onload()">
 
-        <header> 
+        <header id="headerPageAccueilUtilisateur"> 
             <nav>
                 <img id="logo" src="../Assets/logo.png" alt="logo"/>
                 <div class="titleSite"><a>SmartArro</a></div>

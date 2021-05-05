@@ -21,6 +21,7 @@ function changeStatut(idVanne,statut) {
             }
         }
     }
+    
     var data = "event=changeStatut&idVanne=" + idVanne +  "&statut=" + newStatut;
     ajax.open("POST", "../Controleur/ctrlVanne.php", true); 
     ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
