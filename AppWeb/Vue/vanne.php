@@ -8,6 +8,7 @@ $nomCircuit = "";
 $nomVanne = "";
 $cssStatut ="background-color : red;font-style : Copperplate;";
 $txtStatut ="OFF";
+$idVanne = $_GET["idVanne"];
 $dataVanne = $vanne->getDataVanne($_GET["idVanne"]);
 $statutVanne = $dataVanne[0]["statut"];
 if($dataVanne != 0){
@@ -24,7 +25,7 @@ if($dataVanne != 0){
     }
 } 
 // Gestion de l'affichage des statuts
-if($statutVanne === 0){
+if($statutVanne == 0){
     $cssStatut ="background-color : green;font-style : Copperplate;";
     $txtStatut ="ON";
 }
@@ -57,22 +58,37 @@ if($statutVanne === 0){
         <header> 
           <section>
             <div >
-                <h1><?php echo $nomVanne." du ".$nomCircuit ?>:</h1>
+                <h1><?php echo $nomVanne." du ".$nomCircuit ?>: </h1>
             </div>
           </section>
         </header>
         <div>
             <canvas id="graphiqueEau" width="300" height="100"></canvas>
         </div> 
+        <button onclick="changeStatutVanne(<?php  echo $idVanne.','.$statutVanne; ?>)">Changer le statut</button>
+        <div id="statut" style="<?php echo $cssStatut;?>">
+            <?php echo $txtStatut; ?>
+        </div> 
         <form id="parameterVanne">
-            <button onclick="changeStatut(<?php  echo $_GET["idVanne"]; ?>,<?php echo $statutVanne; ?>)">Changer le statut</button>
-            <div id="statut" style="<?php echo $cssStatut;?>">
-                <?php echo $txtStatut; ?>
-            </div> 
             <div id="progSemaine">
                 Programmation Eau :
             </div> 
+            <div>
+                <label for="start">Date :</label>
+                <input type="date" id="date" name="trip-start">
+            </div> 
+            <div>
+                <label for="appt">Heure de début :</label>
+
+                <input type="time" id="heureD" name="appt">
+            </div> 
+            <div>
+                <label for="appt">Heure de fin :</label>
+
+                <input type="time" id="heureF" name="appt">
+            </div> 
         </form>  
+        <button onclick="programmeDateVanne(<?php  echo $idVanne; ?>)">Programmer date</button>
     </body>
     <script>
         var timeFormat = 'DD/MM/YYYY';

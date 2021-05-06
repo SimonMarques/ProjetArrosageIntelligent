@@ -37,6 +37,12 @@ class Vanne{
         return $dataVanne;
      }
 
+     /**
+      * Change le statut de la vanne passé en paramètre (ON ou OFF)
+      * @param $idCircuit ID de la vannne
+      * @param $statut Statut à changer
+      * @return BOOL True : Succès | False : Erreur
+      */
     function changeStatut($idVanne, $statut){
         $sql = "UPDATE vannes
                 SET statut = '$statut'
@@ -46,6 +52,32 @@ class Vanne{
             return false;
         } else {
             return true;
+        }
+    }
+
+    /**
+      * Programmation d'une date d'arrosage passé en paramètre
+      * @param $idCircuit ID de la vannne
+      * @param $date Date
+      * @param $heureD Heure de début
+      * @param $heureF Heure de fin
+      * @return BOOL True : Succès | False : Erreur
+      */
+    function programmeDate($idVanne, $date, $heureD, $heureF){
+        $array = Array (
+            "idVanne" => $idVanne,
+            "date" => $date,
+            "heureDebut" => $heureD,
+            "heureFin" => $heureF
+        );
+        
+        // encode array to json
+        $json = json_encode($array);
+        $bytes = file_put_contents("../Json/Vanne".$idVanne."_".$date.".json", $json);
+        if(is_int($bytes)){
+            return true;
+        } else {
+            return false;
         }
     }
 

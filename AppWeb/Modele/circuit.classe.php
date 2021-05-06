@@ -5,6 +5,9 @@
 class Circuit{
 
     function __construct() {
+        //$dsn = 'mysql:dbname=arrosageintelligent;host=projet18ddns.net';
+        // $user = 'projet18';
+        // $password = 'Projet18';
         $dsn = 'mysql:dbname=arrosageintelligent;host=127.0.0.1';
         $user = 'root';
         $password = '';

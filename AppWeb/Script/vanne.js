@@ -1,11 +1,12 @@
 
-function changeStatut(idVanne,statut) { 
+function changeStatutVanne(idVanne,statut) { 
     let newStatut;
     if(statut == 0){
         newStatut = 1;
     } else {
         newStatut = 0;
-    }  
+    } 
+
     var ajax = new XMLHttpRequest();
     var check;
     var rep;
@@ -26,4 +27,31 @@ function changeStatut(idVanne,statut) {
     ajax.open("POST", "../Controleur/ctrlVanne.php", true); 
     ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     ajax.send(data); 
+}
+
+function programmeDateVanne(idVanne) { 
+    var date = document.getElementById("date").value;
+    var heureD = document.getElementById("heureD").value;
+    var heureF = document.getElementById("heureF").value;
+
+    var ajax = new XMLHttpRequest();
+    var check;
+    var rep;
+    ajax.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            check = this.responseText;
+            rep = JSON.parse(check);
+            if(rep.Check == "false"){
+                alert(rep.Text);
+            }else{
+                alert("Programmation d'arrosage réaliser avec succès!");
+            }
+        }
+    }
+    
+    var data = "event=programmeDate&idVanne=" + idVanne +  "&date=" + date + "&heureD="+ heureD + "&heureF="+ heureF;
+    ajax.open("POST", "../Controleur/ctrlVanne.php", true); 
+    ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    ajax.send(data); 
+
 }
