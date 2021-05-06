@@ -10,7 +10,7 @@
     <header class="headerIndexAccueil"> 
       <nav class="navIndexAccueil">
         <img id="logo" src="./Assets/Logo.png" alt="logo"/>
-        <div class="titleSite"><a href="index.html">SmartArro</a></div>
+        <div class="titleSite"><a href="index.php">SmartArro</a></div>
         <button class="primary-button" onclick="window.location.href = './Vue/login.php'"><img id="moncompte" src="./Assets/MonCompte .JPG" alt="logo"/>      Mon compte</button>
       </nav>
         <section id="landing-section">
