@@ -5,12 +5,13 @@
       <link href="./Style/style.css" rel="stylesheet" type="text/css">
       <link rel="icon" href="./Assets/logo.png" />
   </head>
-  <body>
-    <header> 
-      <nav>
+
+  <body>  
+    <header class="headerIndexAccueil"> 
+      <nav class="navIndexAccueil">
         <img id="logo" src="./Assets/Logo.png" alt="logo"/>
         <div class="titleSite"><a href="index.html">SmartArro</a></div>
-        <button class="primary-button" onclick="window.location.href = './Vue/login.php'"><img id="moncompte" src="./Assets/MonCompte .JPG" alt="logo"/> Mon compte</button>
+        <button class="primary-button" onclick="window.location.href = './Vue/login.php'"><img id="moncompte" src="./Assets/MonCompte .JPG" alt="logo"/>      Mon compte</button>
       </nav>
         <section id="landing-section">
           <div id="main-text-wrapper">
@@ -56,33 +57,33 @@
             </div>
           </section>
 
-        <section id="fonctionAppli-section">
+        <section class="fonctionAppli-section-Accueil">
           <h3>Creer vous un compte et laissez-vous guider</h3>
           <p id="fonctionAppli-desc">Voici toutes les fonctionnalites que l'on propose</p>
 
-          <div id="fonctionAppli-wrapper">
-              <div class="fonctionAppli-item">
+          <div class="fonctionAppli-wrapper-Accueil">
+              <div class="fonctionAppli-item-Accueil">
                   <img src="./Assets/ConsomationEau.png" />
-                  <h3 class="fonctionAppli-name">Consommation d'eau</h3><br>
+                  <h3 class="fonctionAppli-name-Accueil">Consommation d'eau</h3><br>
                   <p class="fonctionAppli-description">Permet de voir la consommation effectue dans les dernier jours grace a des graphiques</p>
               </div>
               
-              <div class="fonctionAppli-item">
-                  <img src="./Assets/Circuit.png" />
-                  <h3 class="fonctionAppli-name">Circuit</h3><br>
+              <div class="fonctionAppli-item-Accueil">
+                  <img src="assets/Circuit.png" />
+                  <h3 class="fonctionAppli-name-Accueil">Circuit</h3><br>
                   <p class="fonctionAppli-description">Une partie pour faire son circuit personnalise de son jardin</p>
               </div>
 
-              <div class="fonctionAppli-item">
+              <div class="fonctionAppli-item-Accueil">
                 <img src="./Assets/meteo.png" />
-                <h3 class="fonctionAppli-name">Meteo</h3><br>
+                <h3 class="fonctionAppli-name-Accueil">Meteo</h3><br>
                 <p class="fonctionAppli-description">Possibilite de visualiser la meteo de la journee et des journees a venir pour permettre un programmation 
                   optimal de son jardin</p>
               </div>
 
-              <div class="fonctionAppli-item">
+              <div class="fonctionAppli-item-Accueil">
                   <img src="./Assets/Parametre.png" />
-                  <h3 class="fonctionAppli-name">Parametre</h3><br>
+                  <h3 class="fonctionAppli-name-Accueil">Parametre</h3><br>
                   <p class="fonctionAppli-description">Tout ceci est parametrable dans cette derniere partie</p>
               </div>
           </div>

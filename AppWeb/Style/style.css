@@ -1,563 +1,3 @@
-
-/*------------------------------ PARTIE SIMON AU-DESSUS ---------------------------------*/
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #fcfcfc;
-  }
-  .miseEnPage{
-      display: flex;
-      align-items:center;
-  }
-  
-  .wave{
-      margin-right: 20%;
-  }
-  .imageGrande{
-      min-height: 100vh;
-  }
-  .imageLogo{
-    display: flex;
-    position: absolute;
-    top: 0px; right: 0px;
-  }
-  .container {
-    position: relative;
-    width: 450px;
-    min-height: 500px;
-    height: auto;
-    max-height: 520px;
-    background-color: #fcfcfc;
-    padding: 5px 15px;
-    border-radius: 10px;
-    font-size: 25px;
-    font-family: "Quicksand", sans-serif;
-  }
-  .logo {
-    position: absolute;
-    top: 2%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    box-shadow: 0 5px 5px #ccc;
-    font-size: 1.8em;
-    background-color: #2CC0C9;
-    color: #f0f6fb;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .tab-body {
-    position: relative;
-    display: none;
-  
-    height: auto;
-    max-height: 320px;
-    padding: 15% 5%;
-    margin-top: 20%;
-    background-color: #fff;
-    color: #2CC0C9;
-    box-shadow: 0px 5px 10px #7c8395;
-    border-radius: 30px;
-    font-size: 1rem;
-  }
-  .tab-body.active {
-    display: block;
-  }
-  
-  .row {/*souligne les saisis*/
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #2CC0C9;
-    padding: 1.8% 0;
-    margin: 20px 0;
-  }
-  
-  .row .input {
-    width: 90%;
-    border: none;
-    outline: none;
-    color: #2CC0C9;
-    font-weight: 550;
-  }
-  .input::placeholder {
-    color: gray;
-  }
-  
-  .link {
-    display: inline-block;
-    font-size: 0.8em;
-    width: 100%;
-    text-decoration: none;
-    color: #2b384f;
-    text-align: right;
-  }
-  .link:hover {
-    text-decoration: underline;
-  }
-  
-  .btn {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, 50%);
-    width: 140px;
-    height: 65px;
-    border-radius: 50px;
-    background-color: #42D8C0;
-    border: none;
-    outline: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 20px;
-  }
-  
-  .tab-footer {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    height: 30px;
-    display: flex;
-  }
-  
-  .tab-link {
-    text-decoration: none;
-    color: #2CC0C9;
-    margin: 0 3%;
-  }
-  
-  .tab-link.active {
-    font-weight: bold;
-  }
-  
-  @media screen and (max-width: 1400px){
-      
-      body {
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          background-color: #fcfcfc;
-        }
-      .img{
-          display: none;
-      }
-  
-      .wave{
-          display: none;
-      }
-  }
-  
-  /*##########  Pour le menu  #######################################################################################################*/
-  header nav ul{
-    display: flex;
-    flex-wrap: wrap;
-    position : fixed;
-    width: 100%;
-    z-index: 3;
-  }
-  
-  header nav ul, header nav ul li ul{
-    background-color: #77BE34;
-    list-style-type: none; /*Enlever les points devants les li*/
-    margin: 0; 
-    padding-left: 0;
-  }
-  header nav ul li, header nav ul li ul li{
-    background-color:   #77BE34;
-    position: relative; /*?*/ 
-    transition-duration: 0.5s; /*En combien de temps elles apparaissent*/
-    text-align: center;
-    flex: 1 ;/* L'espace dans le conteneur parent ul est réparti également avec ses enfants li */
-    border-bottom: 2px solid  #77BE34;
-  
-  }
-  header nav ul li a, header nav ul li ul li a{
-    color: white; /*Couleur des a en blanc*/
-    display: block;
-    text-decoration: none;
-    padding: 1rem;
-    
-  }
-  header nav ul li:hover, header nav ul li ul li:hover{
-    background-color:  #77BE34;
-    cursor: pointer; /*Changer le curseur*/
-  }
-  header nav ul li ul{
-    background-color:  #77BE34;
-  }
-  nav ul li:hover{
-    border-bottom: 2px solid white;
-  }
-  nav ul li a:hover{
-    color: black; /* Permet de mettre la couleur du text lors du survol*/
-  }
-  
-  /* bouton pour envoyer vers des liens facebook et site officiel*/
-  header nav ul li:hover, header nav ul li ul li:hover{
-    background-color: #77BE34;
-    cursor: pointer; /*Changer le curseur*/
-  }
-  /*##########  Fin Menu  ##########*/
-  
-  html,body{
-    height: 100%;
-    width: 100%;
-    margin: 0;
-}
-body{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    font-family: monospace;
-}
-
-#logo {
-    width: 40px;
-}
-
-#moncompte {
-    width: 40px;
-}
-nav {
-    background-color: white;
-    width: 100%;
-    height: 77px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 28px;
-    box-sizing: border-box;
-    position: fixed;
-    z-index: 10;
-}
-
-#headerPageAccueil{
-    background-image: url("../assets/fond1.jpg");
-    width: 100%;
-    height: 100vh;
-    background-position: left;
-    background-size: cover;
-    background-repeat: no-repeat ;
-    background-position: center center;
-    background-attachment: fixed;
-    opacity: 0.8;
-}
-
-
-.menu-item {
-    color: black;
-    font-weight: 600;
-    font-size: 14px;
-    margin-right: 24px;
-    cursor: pointer;
-    text-decoration: none;
-}
-.menu-item i {
-    padding-left: 4px;
-}
-.primary-button {
-    font-size: 30px;
-    font-weight: 300;
-    color:rgb(10, 184, 184);
-    background-color:  white;
-    border: 0;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-}
-.primary-button:hover{
-    opacity: 0.8;
-}
-.titleSite{
-    font-size: x-large;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.titleSite a{
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-}
-.titleSite a:hover{
-    opacity: 0.5;
-    color: grey;
-}
-#landing-section {
-    width: 100%;
-    height: 100vh;
-}
-
-#main-text-wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    bottom: 0;
-    color: white;
-    font-size: 30px;
-    font-style: bold;
-}
-
-/* PRODUCT SECTION STYLES START */
-#products-section {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: stretch;
-    background: linear-gradient(0.15turn, black, grey, black); 
-}
-
-.product-item {
-    width: 35%;
-    padding: 10px 15px;
-    text-align: center;
-    color: #00a7ba;
-    box-sizing: border-box;
-}
-
-.product-item i {
-    font-size: 96px;
-    transition: all 0.3s;
-}
-
-.product-item:hover i{
-    transform: scale(1.1, 1.1);
-}
-
-.product-item h3 {
-    font-weight: 600;
-    font-size: 24px;
-}
-
-.product-item p {
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    line-height: 1.6;
-    margin-top: 0;
-}
-
-.product-description{
-    text-align:center;
-    color: #000000;    
-}
-
-#product {
-    background-color: white;
-}
-/* PRODUCT SECTION STYLES END */
-
-.carrousel-section {
-    width: 100%;
-    padding-top: 75px;
-    padding-bottom: 75px;
-    text-align: center;
-    background-color: #D0D0D0;
-}
-
-h1{
-    font-family: "Lucida Console", Courier, monospace;
-}
-
-footer{
-    position: fixed;
-    width: 100%; 
-    bottom: 0%;
-}
-.imgAcceuil{
-    width: 35%;
-    margin-top: 2%;
-    margin-bottom: 3%;
-}
-@media screen and (max-width : 1000px){
-   .imgAcceuil{
-       width: 60%;
-   }  
-}
-
-.nameProduct{
-    color: white;
-    font-family: monospace;
-    font-size: 30px;
-}
-.description{
-    color: white;
-    font-family: "Lucida Console", Courier, monospace;
-}
-.product{
-    border: solid 5px white;
-    height: 100%;
-    margin-top: 2%;
-    display: flex;
-    flex-direction: row;
-}
-.productImg{
-    border: solid 1px white;
-    width: 20%;
-    background-position: center;
-}
-.productInfo{
-    border: solid 1px white;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.productPrix{
-    border: solid 1px white;
-    height: 50%;
-    width: 100%;
-    margin: 0;
-    color: white;
-    font-size: xx-large;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.productDate{
-    border: solid 1px white;
-    height: 50%;
-    width: 100%;
-    margin: 0;
-    color: white;
-    font-size: x-large;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.productDescription{
-    border: solid 1px white;
-    height: auto;
-    width: 100%;
-    margin: 2;
-    color: white;
-    font-size: large;
-    position: sticky;
-    
-}
-.bodyPage1{
-    background-color: #D0D0D0;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-/* FONCTION SECTION  START */
-#fonctionAppli-section {
-    width: 100%;
-    padding-top: 75px;
-    padding-bottom: 75px;
-    text-align: center;
-}
-
-#fonctionAppli-section > h3 {
-    font-size: 44px;
-    font-weight: 600;
-    margin: 0;
-    margin-bottom: 8px;
-}
-
-#fonctionAppli-desc {
-    max-width: 700px;
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0 auto;
-    color: #8b8b99;
-    letter-spacing: 0.5px;
-    margin-top: 55px;
-}
-
-#fonctionAppli-wrapper {
-    width: 100%;
-    height: 600px;
-    max-width: 1140px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-}
-
-.fonctionAppli-item {
-    width: 25%;
-    height: 50%;
-    text-align: center;
-    background-color: #f5f6fb;
-    padding: 40px 30px;
-    margin: 16px;
-    border-top-left-radius: 45px;
-    border-bottom-left-radius: 45px;
-    border-bottom-right-radius: 45px;
-    transition: box-shadow 0.3s;
-}
-
-.fonctionAppli-item:hover {
-    box-shadow: 0 12px 16px 0 rgba(39, 39, 47, 0.06);
-    background-color: #f1f4ff;
-}
-
-.fonctionAppli-item img {
-    width: 80px;
-    margin-bottom: 25px;
-    border-radius: 50%;
-}
-
-.fonctionAppli-description {
-    font-size: 14px;
-    color: #8b8b99;
-    letter-spacing: 0.5px;
-    font-style: italic;
-    margin: 0;
-}
-
-.fonctionAppli-item h3 {
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 24px;
-    margin-bottom: 0px;
-}
-
-/* FONCTION SECTION END */
-
-
-@media (max-width: 800px ){
-    #fonctionAppli-section {
-        padding: 16px;
-        box-sizing: border-box;
-    }
-
-    #fonctionAppli-section > h3 {
-       font-size: 28px; 
-    }
-
-    #fonctionAppli-wrapper {
-        flex-direction: column;
-    }
-
-    .fonctionAppli-item {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .fonctionAppli-name {
-        font-size: important 18px;
-    }
-    iframe{
-        width: 380px;
-        height: 200px;
-    }
-}
-
 html,body{
     height: 100%;
     width: 100%;
@@ -568,27 +8,17 @@ body{
     display: flex;
     flex-direction: column;
     font-family: monospace;
+    background-color: white;
 }
 
-/*##########  Menu  ##########*/
+/*##########  Menu general  ##########*/
 #logo {
     width: 40px;
 }
 #moncompte {
     width: 40px;
 }
-nav {
-    background-color: white;
-    width: 100%;
-    height: 77px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 28px;
-    box-sizing: border-box;
-    position: fixed;
-    z-index: 10;
-}
+
 .primary-button {
     font-size: 30px;
     font-weight: 300;
@@ -617,13 +47,26 @@ nav {
     opacity: 0.5;
     color: grey;
 }
-/*##########  Fin menu  ##########*/
+/*##########  Fin menu general  #############*/
 
-/*##########  Autre maniere d'afficher la météo #############*/
-#widget_autocomplete_preview{
-    margin-top : 80px;
+/*------------------------------------------------------------*/
+/*##########  Début page connection utilisateur  #############*/
+/*------------------------------------------------------------*/
+
+/*##########  Menu page accueil utilisateur  ##########*/
+.headerAccueilUtilisateur{
+    background-color: white;
+    width: 100%;
+    height: 77px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 28px;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 10;
 }
-/*##########  Fin Météo option #############*/
+/*##########  Fin menu page accueil utilisateur  #############*/
 
 /*##########  Météo  #############*/
 #fonction-meteo{
@@ -658,21 +101,19 @@ nav {
 /*##########  Fin météo  #############*/
 
 /*##########  Debut fonction  #############*/
-#fonctionAppli-section {
+#fonctionAppli-section-utilisateur {
     width: 100%;
     padding-top: 75px;
     padding-bottom: 75px;
     text-align: center;
 }
-
-#fonctionAppli-section > h3 {
+#fonctionAppli-section-utilisateur > h3 {
     font-size: 44px;
     font-weight: 600;
     margin: 0;
     margin-bottom: 8px;
 }
-
-#fonctionAppli-desc {
+#fonctionAppli-desc-utilisateur {
     max-width: 700px;
     font-size: 16px;
     font-weight: 500;
@@ -681,8 +122,7 @@ nav {
     letter-spacing: 0.5px;
     margin-top: 55px;
 }
-
-#fonctionAppli-wrapper {
+#fonctionAppli-wrapper-utilisateur {
     width: 100%;
     height: 800px;
     max-width: 1140px;
@@ -690,8 +130,7 @@ nav {
     display: flex;
     align-items: center;
 }
-
-.fonctionAppli-item {
+.fonctionAppli-item-utilisateur {
     width: 30%;
     height: 250px;
     text-align: center;
@@ -703,18 +142,192 @@ nav {
     border-bottom-right-radius: 45px;
     transition: box-shadow 0.3s;
 }
-
-.fonctionAppli-item:hover {
+.fonctionAppli-item-utilisateur:hover {
     box-shadow: 0 12px 16px 0 rgba(39, 39, 47, 0.06);
     background-color: #f1f4ff;
 }
-
-.fonctionAppli-item img {
+.fonctionAppli-item-utilisateur img {
     width: 80px;
     margin-bottom: 25px;
     border-radius: 50%;
 }
+.fonctionAppli-description-utilisateur {
+    font-size: 14px;
+    color: #8b8b99;
+    letter-spacing: 0.5px;
+    font-style: italic;
+    margin: 0;
+}
+.fonctionAppli-item-utilisateur h3 {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 0px;
+}
 
+/*##########  Fin fonction  #############*/
+
+/*----------------------------------------------------------*/
+/*##########  Fin Page connection utilisateur  #############*/
+/*----------------------------------------------------------*/
+
+
+/*---------------------------------------------*/
+/*##########  Début page accueil  #############*/
+/*---------------------------------------------*/
+
+/*##########  Debut menu page accueil ##########*/
+
+.navIndexAccueil{
+    background-color: white;
+    width: 100%;
+    height: 77px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 28px;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 10;
+}
+.headerIndexAccueil{
+    width: 100%;
+    height: 100vh;
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat ;
+    background-image: url("../assets/fond1.jpg");
+    background-position: center center;
+    background-attachment: fixed;
+    opacity: 0.8;
+}
+
+#landing-section {
+    width: 100%;
+    height: 100vh;
+}
+
+#main-text-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    bottom: 0;
+    color: white;
+    font-size: 30px;
+    font-style: bold;
+}
+/*########## Fin menu page accueil ##########*/
+
+/* PRODUCT SECTION STYLES START */
+#products-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    background: linear-gradient(0.15turn, black, grey, black); 
+}
+.product-item {
+    width: 35%;
+    padding: 10px 15px;
+    text-align: center;
+    color: #00a7ba;
+    box-sizing: border-box;
+}
+.product-item i {
+    font-size: 96px;
+    transition: all 0.3s;
+}
+.product-item:hover i{
+    transform: scale(1.1, 1.1);
+}
+.product-item h3 {
+    font-weight: 600;
+    font-size: 24px;
+}
+.product-item p {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    margin-top: 0;
+}
+.product-description{
+    text-align:center;
+    color: #000000;    
+}
+#product {
+    background-color: white;
+}
+/* PRODUCT SECTION STYLES END */
+
+h1{
+    font-family: "Lucida Console", Courier, monospace;
+}
+.description{
+    color: white;
+    font-family: "Lucida Console", Courier, monospace;
+}
+.product{
+    border: solid 5px white;
+    height: 100%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* FONCTION SECTION  START */
+.fonctionAppli-section-Accueil {
+    width: 100%;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    text-align: center;
+}
+.fonctionAppli-section-Accueil > h3 {
+    font-size: 44px;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 8px;
+}
+#fonctionAppli-desc {
+    max-width: 700px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 auto;
+    color: #8b8b99;
+    letter-spacing: 0.5px;
+    margin-top: 55px;
+}
+.fonctionAppli-wrapper-Accueil {
+    width: 100%;
+    height: 600px;
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.fonctionAppli-item-Accueil {
+    width: 25%;
+    height: 50%;
+    text-align: center;
+    background-color: #f5f6fb;
+    padding: 40px 30px;
+    margin: 16px;
+    border-top-left-radius: 45px;
+    border-bottom-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+    transition: box-shadow 0.3s;
+}
+.fonctionAppli-item-Accueil:hover {
+    box-shadow: 0 12px 16px 0 rgba(39, 39, 47, 0.06);
+    background-color: #f1f4ff;
+}
+.fonctionAppli-item-Accueil img {
+    width: 80px;
+    margin-bottom: 25px;
+    border-radius: 50%;
+}
 .fonctionAppli-description {
     font-size: 14px;
     color: #8b8b99;
@@ -722,46 +335,217 @@ nav {
     font-style: italic;
     margin: 0;
 }
-
-.fonctionAppli-item h3 {
+.fonctionAppli-item-Accueil h3 {
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 600;
     margin-top: 24px;
     margin-bottom: 0px;
 }
-/*##########  Fin fonction  #############*/
+/* FONCTION SECTION END */
+
+
+/*---------------------------------------------*/
+/*##########  Fin page accueil  #############*/
+/*---------------------------------------------*/
+
+/*---------------------------------------------*/
+/*##########  Debut page login  #############*/
+/*---------------------------------------------*/
+/*Début parametre ajouté */
+.miseEnPage{
+    display: flex;
+    align-items:center;
+  }
+  .imageGrandeLogin{
+    min-height: 100vh;
+  }
+  .imageLogoLogin{
+  display: flex;
+  position: absolute;
+  top: 0px; right: 0px;
+  }
+  /*Fin parametre ajouté */
+  
+  /*Debut page par defaut */
+  .wave{
+      margin-right: 20%;
+  }
+  .container {
+    position: relative;
+    width: 450px;
+    min-height: 500px;
+    height: auto;
+    max-height: 520px;
+    background-color: white;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-family: "Quicksand", sans-serif;
+  }
+  .logo {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    box-shadow: 0 5px 5px #ccc;
+    font-size: 1.8em;
+    background-color: #2CC0C9;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tab-body {
+    position: relative;
+    display: none;
+    height: auto;
+    max-height: 320px;
+    padding: 15% 5%;
+    margin-top: 20%;
+    background-color: white;
+    color: #2CC0C9;
+    box-shadow: 0px 5px 10px #7c8395;
+    border-radius: 30px;
+    font-size: 1rem;
+  }
+  .tab-body.active {
+    display: block;
+  }
+  .row {/*souligne les saisis*/
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #2CC0C9;
+    padding: 1.8% 0;
+    margin: 20px 0;
+  }
+  .row .input {
+    width: 90%;
+    border: none;
+    outline: none;
+    color: #2CC0C9;
+    font-weight: 550;
+  }
+  .input::placeholder {
+    color: gray;
+  }
+  .link {
+    display: inline-block;
+    font-size: 0.8em;
+    width: 100%;
+    text-decoration: none;
+    color: #2b384f;
+    text-align: right;
+  }
+  .link:hover {
+    text-decoration: underline;
+  }
+  .btn {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    width: 140px;
+    height: 65px;
+    border-radius: 50px;
+    background-color: #42D8C0;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .tab-footer {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 30px;
+    display: flex;
+  }
+  .tab-link {
+    text-decoration: none;
+    color: #2CC0C9;
+    margin: 0 3%;
+  }
+  .tab-link.active {
+    font-weight: bold;
+  }
+ 
+  /*Fin page par defaut */
+
+/*---------------------------------------------*/
+/*##########  Fin page login  #############*/
+/*---------------------------------------------*/
+
+ /*Debut page login*/
+@media screen and (max-width: 1400px){
+      
+    .bodyLogin {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: white;
+      }
+    .img{
+        display: none;
+    }
+
+    .wave{
+        display: none;
+    }
+}
+/*Fin page login*/
 
 @media (max-width: 800px ){
-    #fonctionAppli-section {
-        padding: 16px;
-        box-sizing: border-box;
-    }
-
-    #fonctionAppli-section > h3 {
-       font-size: 28px; 
-    }
-
-    #fonctionAppli-wrapper {
+    
+    /*Debut page accueil utilisateur*/
+    #fonctionAppli-wrapper-utilisateur {
         flex-direction: column;
     }
-
-    .fonctionAppli-item {
+    .fonctionAppli-item-utilisateur {
         width: 70%;
         box-sizing: border-box;
     }
-
-    .fonctionAppli-name {
+    .fonctionAppli-name-utilisateur {
         font-size: important 18px;
     }
-    iframe{
-        width: 100%;
-        height: 240px;
+    /*Fin page accueil utilisateur*/
+
+    /*Début page accueil*/
+    .fonctionAppli-wrapper-Accueil {
+        flex-direction: column;
     }
+    .fonctionAppli-name-Accueil {
+        font-size: important 18px;
+    }
+    .fonctionAppli-item-Accueil {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .fonctionAppli-section-Accueil {
+        padding: 16px;
+        box-sizing: border-box;
+    }
+    .fonctionAppli-section-Accueil > h3 {
+        font-size: 28px; 
+     }
+    /*Fin page accueil*/
+
 }
 
 @media (max-height: 350px ){
-    #fonctionAppli-wrapper {
+    /*Debut page accueil utilisateur*/
+
+    #fonctionAppli-wrapper-utilisateur {
         height: 400px;
     }
+    /*Fin page accueil utilisateur*/
+
 }
