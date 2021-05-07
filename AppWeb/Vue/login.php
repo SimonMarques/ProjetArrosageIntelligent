@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
-	<!-- Onglet -->
 	<head>
 		<title>Arrosage</title>
 		<meta charset="UTF-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="../Style/style.css" rel="stylesheet" type="text/css">
-		<link rel="icon" href="../Assets/Logo.jpg" />
+        <link rel="icon" href="../Assets/logo.png" />
 		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/a076d05399.js"> </script>
   		<script src="../Script/connect.js" defer></script>
 	</head>
 
-	<body>
-	<header>
-	<input type="image" class="imageLogo" alt="Login"src="../Assets/Logo.jpg">	
-	</header>
+	<body class="bodyLogin">
+		<header class="headerLogin">
+			<input type="image" class="imageLogoLogin" alt="Login"src="../Assets/Logo.jpg">	
+		</header>
 		<div class="miseEnPage">
 			<div class="wave">
-				<img class="imageGrande" src="../Assets/FondAccueil.JPG">
+				<img class="imageGrandeLogin" src="../Assets/FondAccueil.JPG">
 			</div>
 
 			<div class="container">

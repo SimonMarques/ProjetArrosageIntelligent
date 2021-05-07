@@ -10,8 +10,8 @@
 
     <body onload="onload()">
 
-        <header id="headerPageAccueilUtilisateur"> 
-            <nav>
+        <header> 
+            <nav class="headerAccueilUtilisateur">
                 <img id="logo" src="../Assets/logo.png" alt="logo"/>
                 <div class="titleSite"><a>SmartArro</a></div>
                 <button class="primary-button" onclick="window.location.href = '../index.php'">Deconnexion</button>
@@ -25,29 +25,29 @@
             </script>
         </div>
         
-        <div id="fonctionAppli-wrapper">
-            <intput class="fonctionAppli-item" onclick="window.location.href = './circuits.php'">      
+        <div id="fonctionAppli-wrapper-utilisateur">
+            <intput class="fonctionAppli-item-utilisateur" onclick="window.location.href = '../login/index.php'">      
                 <img src="../Assets/ConsomationEau.png" />
-                <h3 class="fonctionAppli-name">Consommation d'eau</h3><br>
-                <p class="fonctionAppli-description">Consultez votre consomation</p>
+                <h3 class="fonctionAppli-name-utilisateur">Consommation d'eau</h3><br>
+                <p class="fonctionAppli-description-utilisateur">Consultez votre consomation</p>
             </intput>
 
-            <intput class="fonctionAppli-item" onclick="window.location.href = './circuits.php'">      
+            <intput class="fonctionAppli-item-utilisateur" onclick="window.location.href = '../login/index.php'">      
                 <img src="../Assets/Circuit.png" />
-                <h3 class="fonctionAppli-name">Circuit</h3><br>
-                <p class="fonctionAppli-description">Mettez en place votre circuit</p>
+                <h3 class="fonctionAppli-name-utilisateur">Circuit</h3><br>
+                <p class="fonctionAppli-description-utilisateur">Mettez en place votre circuit</p>
             </intput>  
 
-            <intput class="fonctionAppli-item" onclick="window.location.href='https://forecast7.com/fr/44d352d58/rodez/'">      
+            <intput class="fonctionAppli-item-utilisateur" onclick="window.location.href='https://forecast7.com/fr/44d352d58/rodez/'">      
                 <img src="../Assets/meteo.png" />
-                <h3 class="fonctionAppli-name">Meteo</h3><br>
-                <p class="fonctionAppli-description">Visualisez la meteo</p>
+                <h3 class="fonctionAppli-name-utilisateur">Meteo</h3><br>
+                <p class="fonctionAppli-description-utilisateur">Visualisez la meteo</p>
             </intput>  
 
-            <intput class="fonctionAppli-item" onclick="window.location.href = './circuits.php'">      
+            <intput class="fonctionAppli-item-utilisateur" onclick="window.location.href = '../login/index.php'">      
                 <img src="../Assets/Parametre.png" />
-                <h3 class="fonctionAppli-name">Parametre</h3><br>
-                <p class="fonctionAppli-description">Parametrez votre circuit</p>
+                <h3 class="fonctionAppli-name-utilisateur">Parametre</h3><br>
+                <p class="fonctionAppli-description-utilisateur">Parametrez votre circuit</p>
             </intput>  
         </div>
     </body>
