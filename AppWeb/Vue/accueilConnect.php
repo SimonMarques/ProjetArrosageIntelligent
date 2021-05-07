@@ -26,13 +26,13 @@
         </div>
         
         <div id="fonctionAppli-wrapper-utilisateur">
-            <intput class="fonctionAppli-item-utilisateur" onclick="window.location.href = '../login/index.php'">      
+            <intput class="fonctionAppli-item-utilisateur" onclick="window.location.href = './circuits.php'">      
                 <img src="../Assets/ConsomationEau.png" />
                 <h3 class="fonctionAppli-name-utilisateur">Consommation d'eau</h3><br>
                 <p class="fonctionAppli-description-utilisateur">Consultez votre consomation</p>
             </intput>
 
-            <intput class="fonctionAppli-item-utilisateur" onclick="window.location.href = '../login/index.php'">      
+            <intput class="fonctionAppli-item-utilisateur" onclick="window.location.href = './circuits.php'">      
                 <img src="../Assets/Circuit.png" />
                 <h3 class="fonctionAppli-name-utilisateur">Circuit</h3><br>
                 <p class="fonctionAppli-description-utilisateur">Mettez en place votre circuit</p>
@@ -44,7 +44,7 @@
                 <p class="fonctionAppli-description-utilisateur">Visualisez la meteo</p>
             </intput>  
 
-            <intput class="fonctionAppli-item-utilisateur" onclick="window.location.href = '../login/index.php'">      
+            <intput class="fonctionAppli-item-utilisateur" onclick="window.location.href = './circuits.php'">      
                 <img src="../Assets/Parametre.png" />
                 <h3 class="fonctionAppli-name-utilisateur">Parametre</h3><br>
                 <p class="fonctionAppli-description-utilisateur">Parametrez votre circuit</p>

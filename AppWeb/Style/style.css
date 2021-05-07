@@ -197,7 +197,7 @@ body{
     background-position: left;
     background-size: cover;
     background-repeat: no-repeat ;
-    background-image: url("../assets/fond1.jpg");
+    background-image: url("../Assets/fond1.jpg");
     background-position: center center;
     background-attachment: fixed;
     opacity: 0.8;

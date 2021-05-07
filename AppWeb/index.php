@@ -9,7 +9,7 @@
   <body>  
     <header class="headerIndexAccueil"> 
       <nav class="navIndexAccueil">
-        <img id="logo" src="./Assets/Logo.png" alt="logo"/>
+        <img id="logo" src="./Assets/Logo.jpg" alt="logo"/>
         <div class="titleSite"><a href="index.php">SmartArro</a></div>
         <button class="primary-button" onclick="window.location.href = './Vue/login.php'"><img id="moncompte" src="./Assets/MonCompte .JPG" alt="logo"/>      Mon compte</button>
       </nav>
@@ -26,7 +26,7 @@
           <section id="products-section">
             
             <div id="product" class="product-item">
-              <img src="./Assets/EconomieEau.JPG" alt="Economie d'eau"/>
+              <img src="./Assets/EconomieEau.jpg" alt="Economie d'eau"/>
               <h3> Economie d'eau</h3>
               <p class="product-description">
                 Avec le systeme d'arrosage goutte-a-goutte, 
@@ -37,7 +37,7 @@
             </div>
 
             <div id="product" class="product-item">
-              <img src="./Assets/SantePlante.JPG" alt="Economie d'eau"/>
+              <img src="./Assets/SantePlante.jpg" alt="Economie d'eau"/>
               <h3> Sante des plantes </h3>
               <p class="product-description">
                  Un jardin bien arrose c'est l'assurance de recolter des concombres croquants, des fraises sucrees, 
@@ -69,7 +69,7 @@
               </div>
               
               <div class="fonctionAppli-item-Accueil">
-                  <img src="assets/Circuit.png" />
+                  <img src="./Assets/Circuit.png" />
                   <h3 class="fonctionAppli-name-Accueil">Circuit</h3><br>
                   <p class="fonctionAppli-description">Une partie pour faire son circuit personnalise de son jardin</p>
               </div>

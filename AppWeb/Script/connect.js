@@ -61,7 +61,7 @@ function connection() {
     }
     var data = "event=log&login=" + login +  "&mdp=" + mdp;
     ajax.open("POST", "../Controleur/ctrlUtilisateur.php", true); 
-    ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     ajax.send(data); 
 }
 
@@ -98,7 +98,7 @@ function create(){
                 idMpd.value = "";
             }else{
                 // Succès
-                window.location = "../Vue/accueilConnect.php";
+                window.location="../Vue/accueilConnect.php";
             }
         }
     }
