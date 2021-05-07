@@ -481,6 +481,44 @@ h1{
 /*##########  Fin page login  #############*/
 /*---------------------------------------------*/
 
+/*---------------------------------------------*/
+/*##########  Debut page circuit ##############*/
+/*---------------------------------------------*/
+
+.hrCircuit{
+    margin-top: 80px;
+}
+.sectionCircuits{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-start 
+}
+.h2Circuits{
+    text-decoration: underline;
+}
+.divCircuits{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5%;
+    justify-content: flex-start ;
+}
+#btnVisualiser{
+    width: 100px;
+    height: 30px;
+    margin-left: 30px;
+}
+#imageCircuits{
+    width: 300px;
+    height: 200px;
+}
+
+/*---------------------------------------------*/
+/*##########  Fin page circuit ################*/
+/*---------------------------------------------*/
+
+
  /*Debut page login*/
 @media screen and (max-width: 1400px){
       

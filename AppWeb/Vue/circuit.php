@@ -9,11 +9,13 @@ $nbVannes = count($dataVannes);
 $htmlVannes = '';
 if($dataVannes != 0){
     for($i=0; $i<=$nbVannes-1; $i++){
-    $htmlVannes .='<div>
-                        <h3>'.$dataVannes[$i]["nom"].'</h3>
-                        <img src="..\Assets\valve.png" alt="" style="width: 5%;">
-                        <button onclick="getVanne('.$dataVannes[$i]["id"].')">Visualiser</button>
-                     </div>';
+    $htmlVannes .=' <div>
+                        <h2 class="h2Circuits">'.$dataVannes[$i]["nom"].'</h2>
+                        <div class="divCircuits">
+                            <img src="..\Assets\valve.png" alt="" id="imageCircuits">
+                            <button id="btnVisualiser" onclick="getVanne('.$dataVannes[$i]["id"].')">Visualiser</button>
+                        </div>
+                    </div>';
     }
 }
 ?>
@@ -42,12 +44,18 @@ if($dataVannes != 0){
     </head>
     <body >
         <header> 
-          <section>
-            <div >
-                <h1><?php echo $nomCircuit[0]["nom"]; ?>:</h1>
-            </div>
-          </section>
+        <nav class="headerAccueilUtilisateur">
+            <img id="logo" src="../Assets/logo.png" alt="logo"/>
+            <div class="titleSite"><a>SmartArro</a></div>
+            <button class="primary-button" onclick="window.location.href = 'accueilConnect.php'">Retour</button>
+        </nav>
+        <HR class="hrCircuit">
         </header>
-        <?php echo $htmlVannes ?>
 
+        <main>
+            <h1><?php echo $nomCircuit[0]["nom"]; ?>:</h1>
+            <section class="sectionCircuits">
+                <?php echo $htmlVannes ?>
+            </section>
+        </main>
 </html>
