@@ -7,10 +7,12 @@ $nbCircuits = count($circuits)-1;
 $htmlCircuits = '';
 for($i=0; $i<=$nbCircuits; $i++){
     $htmlCircuits .='<div>
-                        <h3>'.$circuits[$i]["nom"].'</h3>
-                        <img src="..\Assets\Circuit.png" alt="" style="width: 5%;">
-                        <button onclick="getCircuit('.$circuits[$i]["id"].')">Visualiser</button>
-                     </div>';
+                        <h2 class="h2Circuits">'.$circuits[$i]["nom"].'</h2>
+                        <div class="divCircuits">
+                            <img src="..\Assets\Circuit.png" alt="" id="imageCircuits">
+                            <button id="btnVisualiser" onclick="getCircuit('.$circuits[$i]["id"].')">Visualiser</button>
+                        </div>
+                    </div>';
 }
 ?>
 
@@ -21,22 +23,23 @@ for($i=0; $i<=$nbCircuits; $i++){
         <link rel="icon" href="../Assets/Logo.jpg" />
         <script src="../Script/circuit.js"></script>
     </head>
+
     <body >
         <header> 
-          <section>
-            <div >
-                <h1>CIRCUITS :</h1>
-            </div>
-          </section>
+            <nav class="headerAccueilUtilisateur">
+                <img id="logo" src="../Assets/logo.png" alt="logo"/>
+                <div class="titleSite"><a>SmartArro</a></div>
+                <button class="primary-button" onclick="window.location.href = 'accueilConnect.php'">Retour</button>
+            </nav>
+            <HR class="hrCircuit">
         </header>
+
         <main>
-            <section>
-                <h3>Les circuits de l'utilisateurs</h3>
-                <div>
+            <h1>Les circuits de l'utilisateurs</h1>
+            <section class="sectionCircuits">
                 <?php
                 echo $htmlCircuits;
                 ?>
-                </div>
             </section>
         </main>        
     </body>

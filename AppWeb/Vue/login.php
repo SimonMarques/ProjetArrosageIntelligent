@@ -13,7 +13,7 @@
 
 	<body class="bodyLogin">
 		<header class="headerLogin">
-			<input type="image" class="imageLogoLogin" alt="Login"src="../Assets/Logo.jpg">	
+			<input type="image" class="imageLogoLogin" alt="Login"src="../Assets/Logo.jpg"onclick="window.location.href = '../index.php'">	
 		</header>
 		<div class="miseEnPage">
 			<div class="wave">
