@@ -1,5 +1,5 @@
 <?php
-    require_once('..\Modele\vanne.classe.php');
+    require_once('../Modele/vanne.classe.php');
     $data = $_POST;
     $vanne= new Vanne();
     session_start();

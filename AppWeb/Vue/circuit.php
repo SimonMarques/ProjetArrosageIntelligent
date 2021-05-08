@@ -1,5 +1,5 @@
 <?php
-require_once('..\Modele\circuit.classe.php');
+require_once('../Modele/circuit.classe.php');
 $circuit = new Circuit();
 // Récupération des données
 session_start();

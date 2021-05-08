@@ -47,7 +47,7 @@
             </div>
 
             <div id="product" class="product-item">
-              <img src="./Assets/GainTemps.JPG" alt="Economie d'eau"/>
+              <img src="./Assets/GainTemps.jpg" alt="Economie d'eau"/>
               <h3> Gain de temps </h3>
               <p class="product-description">
                 Un systeme d'arrosage automatique permet de toujours offrir une quantite d'eau optimale a vos plantes. 

@@ -1,5 +1,5 @@
 <?php
-    require_once('..\Modele\circuit.classe.php');
+    require_once('../Modele/circuit.classe.php');
     $data = $_POST;
     $circuit= new Circuit();
     session_start();

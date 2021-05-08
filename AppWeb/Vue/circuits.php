@@ -1,5 +1,5 @@
 <?php
-require_once('..\Modele\circuit.classe.php');
+require_once('../Modele/circuit.classe.php');
 $circuit = new Circuit();
 session_start();
 $circuits = $circuit->getCircuit($_SESSION["idUser"]);

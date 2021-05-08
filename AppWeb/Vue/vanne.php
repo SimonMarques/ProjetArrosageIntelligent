@@ -1,5 +1,5 @@
 <?php
-require_once('..\Modele\vanne.classe.php');
+require_once('../Modele/vanne.classe.php');
 $vanne = new Vanne();
 // Récupération des données
 session_start();

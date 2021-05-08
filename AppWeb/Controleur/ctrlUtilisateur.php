@@ -1,5 +1,5 @@
 <?php
-    require_once('..\Modele\utilisateur.classe.php');
+    require_once('../Modele/utilisateur.classe.php');
     $data = $_POST;
     $user= new Utilisateur();
     session_start();
