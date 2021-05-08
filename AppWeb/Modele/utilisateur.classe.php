@@ -10,12 +10,13 @@ class Utilisateur{
     public $dbh =null;
 
     function __construct() {
-        $dsn = 'mysql:dbname=arrosageintelligent;host=projet18ddns.net;port:44480';
-        $user = 'projet18';
-        $password = 'Projet18';
-        // $dsn = 'mysql:dbname=arrosageintelligent;host=127.0.0.1';
-        // $user = 'root';
-        // $password = '';
+        $dsn = "mysql:host=localhost;dbname=arrosageintelligent";
+        // BDD serveur
+        // $user = "projet18";
+        // $password = "Projet18";
+        // Ma BDD
+        $user = 'root';
+        $password = '';
         $dbhBDD = null;
         try {
             $dbhBDD = new PDO($dsn, $user, $password);
