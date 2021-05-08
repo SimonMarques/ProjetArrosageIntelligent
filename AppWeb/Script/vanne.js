@@ -44,7 +44,10 @@ function programmeDateVanne(idVanne) {
             if(rep.Check == "false"){
                 alert(rep.Text);
             }else{
-                alert("Programmation d'arrosage réaliser avec succès!");
+                alert("Programmation d'arrosage réaliser avec succès!")
+                setTimeout(function(){ 
+                    window.location = "./vanne.php?idVanne="+idVanne;; 
+                }, 2000);
             }
         }
     }
@@ -54,4 +57,30 @@ function programmeDateVanne(idVanne) {
     ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     ajax.send(data); 
 
+}
+
+function deleteDateVanne(idVanne, date){
+
+    var ajax = new XMLHttpRequest();
+    var check;
+    var rep;
+    ajax.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            check = this.responseText;
+            rep = JSON.parse(check);
+            if(rep.Check == "false"){
+                alert(rep.Text);
+            }else{
+                alert("Suppression de la programmation avec succès!")
+                setTimeout(function(){ 
+                    window.location = "./vanne.php?idVanne="+idVanne;; 
+                }, 2000);
+            }
+        }
+    }
+    
+    var data = "event=deleteDateProg&idVanne=" + idVanne +  "&date=" + date ;
+    ajax.open("POST", "../Controleur/ctrlVanne.php", true); 
+    ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    ajax.send(data);
 }

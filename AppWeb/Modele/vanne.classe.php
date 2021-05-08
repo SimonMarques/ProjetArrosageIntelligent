@@ -79,6 +79,7 @@ class Vanne{
         $json = json_encode($array);
         $bytes = file_put_contents("../Json/Vanne".$idVanne."_".$date.".json", $json);
         if(is_int($bytes)){
+            chmod("../Json/Vanne".$idVanne."_".$date.".json", 0777);
             return true;
         } else {
             return false;
@@ -86,20 +87,63 @@ class Vanne{
     }
 
     /**
-     * Supprime la vanne passé en paramètre
-     * @param $idVanne ID de la vanne
+     * 
      */
-    function deleteVannne($idVanne){
+    function gestionDateProg($idVanne){
 
+        $d = dir("../Json/");
+        $search = "Vanne".$idVanne;
+        $mot = trim($search);
+        $data = Array();
+        $static = null;
+        $compteur = 0;
+        while($entry = $d->read()) { 
+            preg_match("#($mot+?)#s", $entry, $new);
+            $static = $entry;
+            $json = strstr($static, ".json");
+            if ($json != false){
+                $data[$compteur] = $static;
+                $compteur++;
+            };
+        } 
+        $d->close();
+        $dataProg = Array();
+        for($i=0;$i<=($compteur-1);$i++){
+            $url = "../Json/".$data[$i];
+            $json = file_get_contents($url);
+            $dataProg[$i] = json_decode($json);
+        }
+        return $dataProg;
     }
 
     /**
-     * Créer une vanne 
-     * @param $nom Nom de la vanne
-     * @param $idCircuit ID du circuit
+     * Suppression de la programmation d'une date pour une vanne passé en paramètre
      */
-    function createVanne($nom, $idCircuit){
-
+    function deleteDateProg($idVanne, $date){
+        $d = dir("../Json/");
+        $search = "Vanne".$idVanne."_".$date;
+        $mot = trim($search);
+        $data = Array();
+        $static = null;
+        $compteur = 0;
+        while($entry = $d->read()) { 
+            preg_match("#($mot+?)#s", $entry, $new);
+            $static = $entry;
+            $json = strstr($static, ".json");
+            if ($json != false){
+                $data[$compteur] = $static;
+                $compteur++;
+            };
+        } 
+        if($compteur != 0){
+            if(unlink("../Json/".$data[0])){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
+
 }
 ?>

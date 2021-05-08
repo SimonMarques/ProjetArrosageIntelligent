@@ -20,5 +20,13 @@
             echo json_encode(array("Check"=>"false", "Text"=>"Erreur lors de la programmation d'arrosage!"));
         }
         break;
+        case 'deleteDateProg' :
+            $result = $vanne->deleteDateProg($_POST['idVanne'], $_POST['date']);
+            if($result){
+                echo json_encode(array("Check"=>"true"));
+            } else {
+                echo json_encode(array("Check"=>"false", "Text"=>"Erreur lors de la suppression de la programmation d'arrosage!"));
+            }
+        break;
     }
 ?>

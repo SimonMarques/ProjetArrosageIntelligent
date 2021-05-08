@@ -29,7 +29,21 @@ if($statutVanne == 0){
     $cssStatut ="background-color : green;font-style : Copperplate;";
     $txtStatut ="ON";
 }
-// var_dump($dataVanne);
+
+//Programmation horaire par jour pour la vanne sélectionner
+$dataProg = $vanne->gestionDateProg($_GET["idVanne"]);
+$htmlProgHoraires = '';
+if($dataProg){
+   for($i=0;$i<=count($dataProg)-1;$i++){
+        $htmlProgHoraires .= "<tr>
+                                <td>".$dataProg[$i]->date."</td>
+                                <td>".$dataProg[$i]->heureDebut."</td>
+                                <td>".$dataProg[$i]->heureFin."</td>
+                                <td><button style=\"background-color : red;\" onclick=\"deleteDateVanne(".$dataProg[$i]->idVanne.",'".$dataProg[$i]->date."')\">Suppression</button></td>
+                             </tr>";
+    } 
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +71,7 @@ if($statutVanne == 0){
     <body >
         <header> 
           <section>
-            <div >
+            <div>
                 <h1><?php echo $nomVanne." du ".$nomCircuit ?>: </h1>
             </div>
           </section>
@@ -89,6 +103,18 @@ if($statutVanne == 0){
             </div> 
         </form>  
         <button onclick="programmeDateVanne(<?php  echo $idVanne; ?>)">Programmer date</button>
+        <div>
+        <table style="border : 1px solid;border-collapse: separate; text-align : center; ">
+            <caption>Dates programmées :</caption>
+            <tr>
+                <th>Jour</th>
+                <th>Heure de début </th>
+                <th>Heure de fin</th>
+                <th>Suppression</th>
+            </tr>
+            <?php echo $htmlProgHoraires; ?>
+            </table>
+        </div> 
     </body>
     <script>
         var timeFormat = 'DD/MM/YYYY';
