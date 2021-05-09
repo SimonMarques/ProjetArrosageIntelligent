@@ -132,24 +132,27 @@ if($dataProg){
             options: {
                 title: {
                 display: true,
-                text: 'Consomation d\'eau sur les 7 dernier jours'
+                text: 'Consommation d\'eau sur les 14 derniers jours'
                 },
                 scales:     {
                 xAxes: [{
                     type:       "time",
                     time:       {
                         format: timeFormat,
-                        tooltipFormat: 'll'
+                        tooltipFormat: 'D MMM YYYY',
+                        displayFormats: {
+                            quarter: 'D MMM YYYY'
+                        }
                     },
                     scaleLabel: {
                         display:     true,
-                        labelString: 'Date'
+                        labelString: 'Date du jour'
                     }
                 }],
                 yAxes: [{
                     scaleLabel: {
                         display:     true,
-                        labelString: 'value'
+                        labelString: 'ml'
                     }
                 }]
             }
