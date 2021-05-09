@@ -20,7 +20,7 @@ for($i=0; $i<=$nbCircuits; $i++){
 <html>
     <head>
         <title>Circuit</title>
-        <link href="./Style/style.css" rel="stylesheet" type="text/css">
+        <link href="../Style/style.css" rel="stylesheet" type="text/css">
         <link rel="icon" href="../Assets/Logo.jpg" />
         <script src="../Script/circuit.js"></script>
     </head>

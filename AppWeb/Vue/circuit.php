@@ -25,11 +25,11 @@ if($dataVannes != 0){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="./Style/style.css" rel="stylesheet" type="text/css">
+        <link href="../Style/style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-        <title><?php echo $nomCircuit ?></title>
+        <title><?php echo $nomCircuit[0]["nom"]; ?></title>
         <link rel="icon" href="../Assets/Logo.jpg" />
         <script src="../Script/circuit.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
