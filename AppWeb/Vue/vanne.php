@@ -24,6 +24,7 @@ if($dataVanne != 0){
         }
     }
 } 
+
 // Gestion de l'affichage des statuts
 if($statutVanne == 0){
     $cssStatut ="background-color : green;font-style : Copperplate;";
@@ -117,7 +118,6 @@ if($dataProg){
         </div> 
     </body>
     <script>
-        var timeFormat = 'DD/MM/YYYY';
         var config = {
             type: 'line',
             data: {
@@ -137,13 +137,6 @@ if($dataProg){
                 scales:     {
                 xAxes: [{
                     type:       "time",
-                    time:       {
-                        format: timeFormat,
-                        tooltipFormat: 'D MMM YYYY',
-                        displayFormats: {
-                            quarter: 'D MMM YYYY'
-                        }
-                    },
                     scaleLabel: {
                         display:     true,
                         labelString: 'Date du jour'

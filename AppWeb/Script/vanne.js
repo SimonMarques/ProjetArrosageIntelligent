@@ -17,8 +17,10 @@ function changeStatutVanne(idVanne,statut) {
             if(rep.Check == "false"){
                 alert(rep.Text);
             }else{
-                // Succès
-                window.location = "./vanne.php?idVanne="+idVanne;
+                alert("Changement de statut avec succès !")
+                setTimeout(function(){ 
+                    window.location = "./vanne.php?idVanne="+idVanne; 
+                }, 2000);
             }
         }
     }
@@ -46,7 +48,7 @@ function programmeDateVanne(idVanne) {
             }else{
                 alert("Programmation d'arrosage réaliser avec succès!")
                 setTimeout(function(){ 
-                    window.location = "./vanne.php?idVanne="+idVanne;; 
+                    window.location = "./vanne.php?idVanne="+idVanne;
                 }, 2000);
             }
         }
