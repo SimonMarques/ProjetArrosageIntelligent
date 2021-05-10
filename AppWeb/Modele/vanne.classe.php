@@ -77,9 +77,9 @@ class Vanne{
         
         // encode array to json
         $json = json_encode($array);
-        $bytes = file_put_contents("../Json/Vanne".$idVanne."_".$date.".json", $json);
+        $bytes = file_put_contents("../Json/Json_Date/Vanne".$idVanne."_".$date.".json", $json);
         if(is_int($bytes)){
-            chmod("../Json/Vanne".$idVanne."_".$date.".json", 0777);
+            chmod("../Json/Json_Date/Vanne".$idVanne."_".$date.".json", 0777);
             return true;
         } else {
             return false;
@@ -91,7 +91,7 @@ class Vanne{
      */
     function gestionDateProg($idVanne){
 
-        $d = dir("../Json/");
+        $d = dir("../Json/Json_Date/");
         $search = "Vanne".$idVanne;
         $mot = trim($search);
         $data = Array();
@@ -109,7 +109,7 @@ class Vanne{
         $d->close();
         $dataProg = Array();
         for($i=0;$i<=($compteur-1);$i++){
-            $url = "../Json/".$data[$i];
+            $url = "../Json/Json_Date/".$data[$i];
             $json = file_get_contents($url);
             $dataProg[$i] = json_decode($json);
         }
@@ -120,7 +120,7 @@ class Vanne{
      * Suppression de la programmation d'une date pour une vanne passé en paramètre
      */
     function deleteDateProg($idVanne, $date){
-        $d = dir("../Json/");
+        $d = dir("../Json/Json_Date/");
         $search = "Vanne".$idVanne."_".$date;
         $mot = trim($search);
         $data = Array();
@@ -136,7 +136,7 @@ class Vanne{
             };
         } 
         if($compteur != 0){
-            if(unlink("../Json/".$data[0])){
+            if(unlink("../Json/Json_Date/".$data[0])){
                 return true;
             } else {
                 return false;
