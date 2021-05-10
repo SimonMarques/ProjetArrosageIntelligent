@@ -8,7 +8,7 @@ $nomCircuit = "";
 $nomVanne = "";
 $cssStatut ="background-color : red;font-style : Copperplate;";
 $txtStatut ="OFF";
-$idVanne = $_GET["idVanne"];
+$idVanneCurrent = $_GET["idVanne"];
 $dataVanne = $vanne->getDataVanne($_GET["idVanne"]);
 $statutVanne = $dataVanne[0]["statut"];
 if($dataVanne != 0){
@@ -32,6 +32,7 @@ if($statutVanne == 0){
 }
 
 //Programmation horaire par jour pour la vanne sélectionner
+
 $dataProg = $vanne->gestionDateProg($_GET["idVanne"]);
 $htmlProgHoraires = '';
 if($dataProg){
@@ -55,7 +56,7 @@ if($dataProg){
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-        <title><?php echo $nomCircuit ?></title>
+        <title><?php echo $nomVanne ?></title>
         <link rel="icon" href="../Assets/Logo.jpg" />
         <script src="../Script/vanne.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
@@ -80,7 +81,7 @@ if($dataProg){
         <div>
             <canvas id="graphiqueEau" width="300" height="100"></canvas>
         </div> 
-        <button onclick="changeStatutVanne(<?php  echo $idVanne.','.$statutVanne; ?>)">Changer le statut</button>
+        <button onclick="changeStatutVanne(<?php  echo $idVanneCurrent.','.$statutVanne; ?>)">Changer le statut</button>
         <div id="statut" style="<?php echo $cssStatut;?>">
             <?php echo $txtStatut; ?>
         </div> 
@@ -103,7 +104,7 @@ if($dataProg){
                 <input type="time" id="heureF" name="appt">
             </div> 
         </form>  
-        <button onclick="programmeDateVanne(<?php  echo $idVanne; ?>)">Programmer date</button>
+        <button onclick="programmeDateVanne(<?php  echo $idVanneCurrent; ?>)">Programmer date</button>
         <div>
         <table style="border : 1px solid;border-collapse: separate; text-align : center; ">
             <caption>Dates programmées :</caption>

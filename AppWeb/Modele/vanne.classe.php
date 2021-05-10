@@ -87,7 +87,9 @@ class Vanne{
     }
 
     /**
-     * 
+     * Gestion de la suppresion des date de programmation eau en fonction de la vanne passé en paramètre
+     * @param $idVanne ID de la vanne 
+     * @return $dataProg Tableau contenant les nom des fichiers
      */
     function gestionDateProg($idVanne){
 
@@ -98,13 +100,15 @@ class Vanne{
         $static = null;
         $compteur = 0;
         while($entry = $d->read()) { 
-            preg_match("#($mot+?)#s", $entry, $new);
-            $static = $entry;
-            $json = strstr($static, ".json");
-            if ($json != false){
-                $data[$compteur] = $static;
-                $compteur++;
-            };
+            if(preg_match("#($mot+?)#s", $entry, $new) === 1){
+                $static = $entry;
+                $json = strstr($static, ".json");
+                if ($json != false){
+                    $data[$compteur] = $static;
+                    $compteur++;
+                };
+            }
+            
         } 
         $d->close();
         $dataProg = Array();
