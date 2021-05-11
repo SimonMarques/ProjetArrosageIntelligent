@@ -7,7 +7,7 @@ body{
     text-align: center;
     display: flex;
     flex-direction: column;
-    font-family: monospace;
+    font-family: "Open Sans", sans-serif;
     background-color: white;
 }
 
@@ -263,11 +263,11 @@ body{
 /* PRODUCT SECTION STYLES END */
 
 h1{
-    font-family: "Lucida Console", Courier, monospace;
+    font-family: "Open Sans", sans-serif;
 }
 .description{
     color: white;
-    font-family: "Lucida Console", Courier, monospace;
+    font-family: "Open Sans", sans-serif;
 }
 .product{
     border: solid 5px white;
@@ -381,7 +381,7 @@ h1{
     padding: 5px 15px;
     border-radius: 10px;
     font-size: 25px;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Open Sans", sans-serif;
   }
   .logo {
     position: absolute;
@@ -482,38 +482,185 @@ h1{
 /*---------------------------------------------*/
 
 /*---------------------------------------------*/
-/*##########  Debut page circuit ##############*/
+/*##########  Debut page circuits ##############*/
 /*---------------------------------------------*/
 
+.headerAccueilCircuit{
+    border-width:0px 0px 5px 10px;
+}
+
+.titreCircuit{
+    padding:5px 10px;
+    color: #7a7a7a;
+}
+.titre2Circuit{
+    padding:5px 10px;
+    color: #2cc0c9;
+}
 .hrCircuit{
     margin-top: 80px;
+
+}
+#imageCircuitsPetit{
+    width: 100px;
+    height: 50px;
+    border-radius: 0px;
 }
 .sectionCircuits{
     display: flex;
-    flex-direction: column;
-    text-align: left;
-    justify-content: flex-start 
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
-.h2Circuits{
-    text-decoration: underline;
+.fonctionAppli-item-circuit {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+    border-color:#707070;
+    width: 400px;
+    height: 350px;
+    border-width:3px;
+    border-style:solid;
+    padding: 40px 30px;
+    margin: 25px;
+    border-top-right-radius: 45px;
+    border-top-left-radius: 45px;
+    border-bottom-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 12px 16px 0 rgba(39, 39, 47, 0.356);
+}
+.fonctionAppli-item-circuit:hover {
+    box-shadow: 0 12px 16px 0 rgba(39, 39, 47, 0.514);
+    background-color: #e4e1e1ea;
 }
 .divCircuits{
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 5%;
-    justify-content: flex-start ;
+    justify-content: flex-start;
 }
-#btnVisualiser{
-    width: 100px;
-    height: 30px;
-    margin-left: 30px;
+.h2Circuits{
+    color: #2cc0c9;
+    font-weight: bold;
+    text-shadow: 0.1em 0.1em 0.2em rgba(39, 39, 47, 0.200);
+    font-size: 40px;
+    margin-top: 0px;
+    margin-bottom: 50px;
 }
 #imageCircuits{
     width: 300px;
     height: 200px;
+    border-radius: 0px;
+    margin-bottom: 20px;
 }
+#btnVisualiser{
+    width: 200px;
+    font-size: 25px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 5px 5px;
+    border-width:3px;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 12px 16px 0 rgba(39, 39, 47, 0.356);
+    border-style:solid;
+    border-color:#d9a86cc7;
+    color: white;
+    background-color: #d9a86cc7;
+}
+/*---------------------------------------------*/
+/*##########  Fin page circuits ################*/
+/*---------------------------------------------*/
 
+/*---------------------------------------------*/
+/*##########  Debut page Vanne ##############*/
+/*---------------------------------------------*/
+
+.headerAccueilVanne{
+    border-width:0px 0px 5px 10px;
+}
+.titreVanne{
+    padding:5px 10px;
+    color: #7a7a7a;
+}
+.titre2Vanne{
+    padding:5px 10px;
+    color: #d9a86cc7;
+}
+.sectionVanne{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+.fonctionAppli-item-Vanne{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+    border-color:#707070;
+    width: 400px;
+    height: 400px;
+    border-width:3px;
+    border-style:solid;
+    padding: 40px 30px;
+    margin: 25px;
+    border-top-right-radius: 45px;
+    border-top-left-radius: 45px;
+    border-bottom-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 12px 16px 0 rgba(39, 39, 47, 0.356);
+}
+.fonctionAppli-item-Vanne:hover {
+    box-shadow: 0 12px 16px 0 rgba(39, 39, 47, 0.514);
+    background-color: #e4e1e1ea;
+}
+.divVanne{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.h2Vanne{
+    color: #d9a86cc7;
+    text-shadow: 0.1em 0.1em 0.2em rgba(39, 39, 47, 0.200);
+    font-size: 40px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+#imageVanne{
+    width: 200px;
+    height: 150px;
+    border-radius: 0px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+#btnVisualiserVanne{
+    width: 200px;
+    font-size: 25px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 5px 5px;
+    border-width:3px;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 12px 16px 0 rgba(39, 39, 47, 0.356);
+    border-style:solid;
+    border-color:#42d8bfd2;
+    color: white;
+    background-color: #42d8bfd2;
+}
 /*---------------------------------------------*/
 /*##########  Fin page circuit ################*/
 /*---------------------------------------------*/
