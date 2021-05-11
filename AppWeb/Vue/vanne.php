@@ -26,7 +26,7 @@ if($dataVanne != 0){
 } 
 
 // Gestion de l'affichage des statuts
-if($statutVanne == 0){
+if($statutVanne == 1){
     $cssStatut ="background-color : green;font-style : Copperplate;";
     $txtStatut ="ON";
 }

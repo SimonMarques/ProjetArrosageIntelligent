@@ -4,6 +4,7 @@
  */
 class Vanne{
 
+    public $serveur = 0;
     function __construct() {
         $dsn = "mysql:host=localhost;dbname=arrosageintelligent";
         // BDD serveur
@@ -12,6 +13,10 @@ class Vanne{
         // Ma BDD
         $user = 'root';
         $password = '';
+        if ($user == "projet18"){
+            $this->serveur = 1;
+        }
+
         $dbhBDD = null;
         try {
             $dbhBDD = new PDO($dsn, $user, $password);
@@ -52,9 +57,13 @@ class Vanne{
                 SET statut = '$statut'
                 WHERE id = '$idVanne'";
         $nbLine = $this->dbh->exec($sql);
-        if ($nbLine != 1){
+        // exec('sudo python ../controleur_python/activeVanne.py');
+        if ($nbLine != 1){   
             return false;
         } else {
+            if($this->serveur == 1){
+                exec('sudo python ../controleur_python/activeVanne.py');
+            }    
             return true;
         }
     }
