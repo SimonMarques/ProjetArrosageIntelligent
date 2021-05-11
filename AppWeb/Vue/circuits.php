@@ -8,7 +8,7 @@ $htmlCircuits = '';
 for($i=0; $i<=$nbCircuits; $i++){
     $htmlCircuits .='<div class="fonctionAppli-item-circuit">
                         <h2 class="h2Circuits">'.$circuits[$i]["nom"].'</h2>
-                        <img src="..\Assets\CircuitWeb.png" alt="" id="imageCircuits">
+                        <img src="../Assets/CircuitWeb.png" alt="" id="imageCircuits">
                         <button id="btnVisualiser" onclick="getCircuit('.$circuits[$i]["id"].')">Selectionner</button>
                     </div>';
 }
@@ -18,10 +18,10 @@ for($i=0; $i<=$nbCircuits; $i++){
 <html>
     <head>
         <title>Circuit</title>
-        <link href="../Style/style.css" rel="stylesheet" type="text/css">
         <link rel="icon" href="../Assets/Logo.jpg" />
         <script src="../Script/circuit.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+        <link href="../Style/style.css" rel="stylesheet" type="text/css">
     </head>
 
     <body >
@@ -37,7 +37,7 @@ for($i=0; $i<=$nbCircuits; $i++){
         <main>
             <h1><a class="titreCircuit">Visualisation de votre circuit</a></h1>
             <h2 class="titre2Circuit">Veuillez sélectionner un circuit afin de le visualiser</h2>
-            <img src="..\Assets\CircuitPetit.png" alt="" id="imageCircuitsPetit">
+            <img src="../Assets/CircuitPetit.png" alt="" id="imageCircuitsPetit">
 
             <section class="sectionCircuits">
                 <?php
