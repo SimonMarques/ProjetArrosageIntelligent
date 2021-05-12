@@ -169,10 +169,17 @@ if($dataProg){
                 },
                 scales:     {
                 xAxes: [{
-                    type:       "time",
+                    type: "time",
                     scaleLabel: {
                         display:     true,
                         labelString: 'Date du jour'
+                    },
+                    time: {
+                        parser: 'DD/MM/YYYY',
+                        unit: 'day',
+                        displayFormats: {
+                            'day': 'DD/MM/YYYY'
+                        }
                     }
                 }],
                 yAxes: [{
