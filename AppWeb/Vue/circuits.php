@@ -35,7 +35,7 @@ for($i=0; $i<=$nbCircuits; $i++){
         </header>
 
         <main>
-            <h1><a class="titreCircuit">Visualisation de votre circuit</a></h1>
+            <h1><a class="titreCircuit">Visualisation de vos circuit</a></h1>
             <h2 class="titre2Circuit">Veuillez sélectionner un circuit afin de le visualiser</h2>
             <img src="../Assets/CircuitPetit.png" alt="" id="imageCircuitsPetit">
 

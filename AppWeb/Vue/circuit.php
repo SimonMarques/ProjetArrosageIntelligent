@@ -44,13 +44,13 @@ if($dataVannes != 0){
             <nav class="headerAccueilUtilisateur">
                 <img id="logo" src="../Assets/logo.png" alt="logo"/>
                 <div class="titleSite" onclick="window.location.href = 'accueilConnect.php'"><a>SmartArro</a></div>
-                <button class="primary-button" onclick="window.location.href = 'accueilConnect.php'">Retour</button>
+                <button class="primary-button" onclick="window.location.href = 'circuits.php'">Retour</button>
             </nav>
         <HR class="hrCircuit">
         </header>
 
         <main>
-            <h1><a class="titreVanne">Visualisation de votre circuit <?php echo $nomCircuit[0]["nom"]; ?> </a></h1>
+            <h1><a class="titreVanne">Visualisation de votre <?php echo $nomCircuit[0]["nom"]; ?> </a></h1>
             <h2 class="titre2Vanne">Veuillez sélectionner une vanne afin de le visualiser sa consommation</h2>
             <img src="../Assets/CircuitPetit.png" alt="" id="imageCircuitsPetit">
             <section class="sectionVanne">

@@ -6,7 +6,14 @@ session_start();
 $data = "";
 $nomCircuit = "";
 $nomVanne = "";
-$cssStatut ="background-color : red;font-style : Copperplate;";
+$cssStatut ="background-color : red;
+font-style : Copperplate;
+width: 80px;
+height: 30px;
+border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;";
 $txtStatut ="OFF";
 $idVanneCurrent = $_GET["idVanne"];
 $dataVanne = $vanne->getDataVanne($_GET["idVanne"]);
@@ -14,6 +21,7 @@ $statutVanne = $dataVanne[0]["statut"];
 if($dataVanne != 0){
     $nomVanne = $dataVanne[0]["nom"];
     $nomCircuit = $dataVanne[0]["nomCircuit"];
+    $idCircuit = $dataVanne[0]["idCircuit"];
     for($i=0; $i<=count($dataVanne)-1; $i++){
         $date = new DateTime($dataVanne[$i]["date"]);
         $dataVanne[$i]["date"] = $date->format('d/m/Y');
@@ -27,12 +35,18 @@ if($dataVanne != 0){
 
 // Gestion de l'affichage des statuts
 if($statutVanne == 1){
-    $cssStatut ="background-color : green;font-style : Copperplate;";
+    $cssStatut = "background-color : green;
+    font-style : Copperplate;
+    width: 80px;
+    height: 30px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;";
     $txtStatut ="ON";
 }
 
 //Programmation horaire par jour pour la vanne sélectionner
-
 $dataProg = $vanne->gestionDateProg($_GET["idVanne"]);
 $htmlProgHoraires = '';
 if($dataProg){
@@ -45,7 +59,6 @@ if($dataProg){
                              </tr>";
     } 
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -62,6 +75,8 @@ if($dataProg){
         <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+        <link href="../Style/style.css" rel="stylesheet" type="text/css">
         <style>
             canvas {
                 -moz-user-select: none;
@@ -70,53 +85,70 @@ if($dataProg){
             }
         </style>
     </head>
-    <body >
-        <header> 
-          <section>
-            <div>
-                <h1><?php echo $nomVanne." du ".$nomCircuit ?>: </h1>
-            </div>
-          </section>
+    <body> 
+        <header class="headerAccueilCircuit"> 
+            <nav class="headerAccueilUtilisateur">
+                <img id="logo" src="../Assets/logo.png" alt="logo"/>
+                <div class="titleSite"onclick="window.location.href = 'accueilConnect.php'"><a>SmartArro</a></div>
+                <button class="primary-button" onclick="window.location.href = 'circuit.php?idCircuit=<?php echo $idCircuit; ?>'">Retour</button>
+            </nav>
+            <HR class="hrCircuit">
         </header>
+
         <div>
+            <h1><a class="titreVanne">Visualisation de votre <?php echo $nomVanne." du ".$nomCircuit ?> </a></h1>
+        </div>
+
+        <section class="mettreenplace">
+            <div class="reglageVanne">
+                <h1 class="titreVanne">Paramatrage </h2>
+
+                <div class="reglageVanne1">
+                    <div class="reglageVanneInstante">
+                        <button id="btnChngerStatue" onclick="changeStatutVanne(<?php  echo $idVanneCurrent.','.$statutVanne; ?>)">Changer le statut</button>
+                        <div id="statut" style="<?php echo $cssStatut;?>">
+                            <?php echo $txtStatut; ?>
+                        </div>
+                    </div> 
+
+                    <form class="reglageVanneProgrammer">
+                        <div id="progSemaine">
+                            Programmation Eau :
+                        </div> 
+                        <div class="ParaVanneProg">
+                            <label class="texteVanneProg" for="start">Date :</label>
+                            <input class="saisieVanneProg" type="date" id="date" name="trip-start">
+                        </div> 
+                        <div class="ParaVanneProg">
+                            <label class="texteVanneProg" for="appt">Heure de début :</label>
+                            <input class="saisieVanneProg" type="time" id="heureD" name="appt">
+                        </div> 
+                        <div class="ParaVanneProg">
+                            <label class="texteVanneProg" for="appt">Heure de fin :</label>
+                            <input class="saisieVanneProg" type="time" id="heureF" name="appt">
+                        </div> 
+                        <button id="btnProgDate" onclick="programmeDateVanne(<?php  echo $idVanneCurrent; ?>)">Programmer date</button>
+                    </form>  
+                </div>
+            </div>
+            <div>
+                <table>
+                    <caption id="progSemaine">Dates programmées :</caption>
+                    <tr>
+                        <th>Jour</th>
+                        <th>Heure de début </th>
+                        <th>Heure de fin</th>
+                        <th>Suppression</th>
+                    </tr>
+                    <tr><?php echo $htmlProgHoraires; ?></tr>
+                </table>
+            </div> 
+        </section> 
+        <div class="graphique">
+            <h1 id="progSemaine">Consommation d'eau </h2>
             <canvas id="graphiqueEau" width="300" height="100"></canvas>
         </div> 
-        <button onclick="changeStatutVanne(<?php  echo $idVanneCurrent.','.$statutVanne; ?>)">Changer le statut</button>
-        <div id="statut" style="<?php echo $cssStatut;?>">
-            <?php echo $txtStatut; ?>
-        </div> 
-        <form id="parameterVanne">
-            <div id="progSemaine">
-                Programmation Eau :
-            </div> 
-            <div>
-                <label for="start">Date :</label>
-                <input type="date" id="date" name="trip-start">
-            </div> 
-            <div>
-                <label for="appt">Heure de début :</label>
 
-                <input type="time" id="heureD" name="appt">
-            </div> 
-            <div>
-                <label for="appt">Heure de fin :</label>
-
-                <input type="time" id="heureF" name="appt">
-            </div> 
-        </form>  
-        <button onclick="programmeDateVanne(<?php  echo $idVanneCurrent; ?>)">Programmer date</button>
-        <div>
-        <table style="border : 1px solid;border-collapse: separate; text-align : center; ">
-            <caption>Dates programmées :</caption>
-            <tr>
-                <th>Jour</th>
-                <th>Heure de début </th>
-                <th>Heure de fin</th>
-                <th>Suppression</th>
-            </tr>
-            <?php echo $htmlProgHoraires; ?>
-            </table>
-        </div> 
     </body>
     <script>
         var config = {

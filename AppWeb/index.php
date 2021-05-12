@@ -9,7 +9,7 @@
   <body>  
     <header class="headerIndexAccueil"> 
       <nav class="navIndexAccueil">
-        <img id="logo" src="./Assets/Logo.jpg" alt="logo"/>
+      <img id="logo" src="Assets/logo.png" alt="logo"/>
         <div class="titleSite"><a href="index.php">SmartArro</a></div>
         <button class="primary-button" onclick="window.location.href = './Vue/login.php'"><img id="moncompte" src="./Assets/MonCompte .JPG" alt="logo"/>      Mon compte</button>
       </nav>

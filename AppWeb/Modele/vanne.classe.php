@@ -34,7 +34,7 @@ class Vanne{
      */
 
      function getDataVanne($idVanne){
-         $sqlGetDataVannes = "SELECT v.nom, dv.date, dv.debitEau,v.statut , c.nom as nomCircuit
+         $sqlGetDataVannes = "SELECT v.nom, dv.date, dv.debitEau,v.statut , c.nom as nomCircuit, c.id as idCircuit
                           FROM vannes as v
                           INNER JOIN datavanne as dv ON v.id = dv.idVanne
                           INNER JOIN circuits as c ON v.idCircuit = c.id
