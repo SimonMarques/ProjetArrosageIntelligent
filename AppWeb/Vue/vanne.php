@@ -8,8 +8,9 @@ $nomCircuit = "";
 $nomVanne = "";
 $cssStatut ="background-color : red;
 font-style : Copperplate;
+padding-top: 10px;
 width: 80px;
-height: 30px;
+height: 45px;
 border-top-right-radius: 10px;
 border-top-left-radius: 10px;
 border-bottom-left-radius: 10px;
@@ -37,8 +38,9 @@ if($dataVanne != 0){
 if($statutVanne == 1){
     $cssStatut = "background-color : green;
     font-style : Copperplate;
+    padding-top: 10px;
     width: 80px;
-    height: 30px;
+    height: 45px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
