@@ -71,12 +71,12 @@ if($dataProg){
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <title><?php echo $nomVanne ?></title>
         <link rel="icon" href="../Assets/Logo.jpg" />
-        <script src="../Script/vanne.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
         <link href="../Style/style.css" rel="stylesheet" type="text/css">
+        <script src="../Script/vanne.js"></script>
         <style>
             canvas {
                 -moz-user-select: none;
@@ -101,7 +101,7 @@ if($dataProg){
 
         <section class="mettreenplace">
             <div class="reglageVanne">
-                <h1 class="titreVanne">Paramatrage </h2>
+                <h1 class="titreVanne">Paramétrage </h2>
 
                 <div class="reglageVanne1">
                     <div class="reglageVanneInstante">
@@ -117,17 +117,17 @@ if($dataProg){
                         </div> 
                         <div class="ParaVanneProg">
                             <label class="texteVanneProg" for="start">Date :</label>
-                            <input class="saisieVanneProg" type="date" id="date" name="trip-start">
+                            <input class="saisieVanneProg" type="date" id="date">
                         </div> 
                         <div class="ParaVanneProg">
                             <label class="texteVanneProg" for="appt">Heure de début :</label>
-                            <input class="saisieVanneProg" type="time" id="heureD" name="appt">
+                            <input class="saisieVanneProg" type="time" id="heureD">
                         </div> 
                         <div class="ParaVanneProg">
                             <label class="texteVanneProg" for="appt">Heure de fin :</label>
-                            <input class="saisieVanneProg" type="time" id="heureF" name="appt">
+                            <input class="saisieVanneProg" type="time" id="heureF">
                         </div> 
-                        <button id="btnProgDate" onclick="programmeDateVanne(<?php  echo $idVanneCurrent; ?>)">Programmer date</button>
+                        <button type="button" id="btnProgDate" onclick="programmeDateVanne(<?php  echo $idVanneCurrent; ?>)">Programmer date</button>
                     </form>  
                 </div>
             </div>
@@ -156,7 +156,7 @@ if($dataProg){
             data: {
                 datasets: [{ 
                     label: "Courbe:",
-                    data: [<?php echo $data ?>],
+                    data: [<?php echo $data; ?>],
                     borderColor: "#3e95cd",
                     fill: false
                 }
