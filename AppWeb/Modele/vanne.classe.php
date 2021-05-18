@@ -57,12 +57,15 @@ class Vanne{
                 SET statut = '$statut'
                 WHERE id = '$idVanne'";
         $nbLine = $this->dbh->exec($sql);
-        // exec('sudo python ../controleur_python/activeVanne.py');
         if ($nbLine != 1){   
             return false;
         } else {
             if($this->serveur == 1){
-                exec('sudo python ../controleur_python/activeVanne.py');
+                if($idVanne == 1){
+                    exec('sudo python ../controleur_python/activeVanne.py');
+                } else {
+                    exec('sudo python ../controleur_python/activeVanne2.py');
+                }
             }    
             return true;
         }

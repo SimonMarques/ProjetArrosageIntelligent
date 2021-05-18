@@ -20,7 +20,7 @@ function changeStatutVanne(idVanne,statut) {
                 alert("Changement de statut avec succès !")
                 setTimeout(function(){ 
                     window.location = "./vanne.php?idVanne="+idVanne; 
-                }, 2000);
+                }, 1000);
             }
         }
     }
@@ -49,7 +49,7 @@ function programmeDateVanne(idVanne) {
                 alert("Programmation d'arrosage réaliser avec succès!")
                 setTimeout(function(){ 
                     window.location = "./vanne.php?idVanne="+idVanne;
-                }, 2000);
+                }, 1000);
             }
         }
     }
@@ -76,7 +76,7 @@ function deleteDateVanne(idVanne, date){
                 alert("Suppression de la programmation avec succès!")
                 setTimeout(function(){ 
                     window.location = "./vanne.php?idVanne="+idVanne;; 
-                }, 2000);
+                }, 1000);
             }
         }
     }
