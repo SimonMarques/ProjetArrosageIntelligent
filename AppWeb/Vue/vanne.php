@@ -187,7 +187,7 @@ if($dataProg){
                 yAxes: [{
                     scaleLabel: {
                         display:     true,
-                        labelString: 'ml'
+                        labelString: 'm3/h'
                     }
                 }]
             }
