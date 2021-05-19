@@ -58,7 +58,7 @@
           </section>
 
         <section class="fonctionAppli-section-Accueil">
-          <h3>Creer vous un compte et laissez-vous guider</h3>
+          <h3>Creez-vous un compte et laissez-vous guider</h3>
           <p id="fonctionAppli-desc">Voici toutes les fonctionnalites que l'on propose</p>
 
           <div class="fonctionAppli-wrapper-Accueil">
