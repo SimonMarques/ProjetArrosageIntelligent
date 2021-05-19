@@ -45,7 +45,7 @@
 					<form>
 						<div class="row">
 							<i class="far fa-user"></i>
-							<input type="email" class="input" placeholder="Adresse Mail" id="loginCreate">
+							<input type="email" class="input" placeholder="Login" id="loginCreate">
 						</div>
 						<div class="row">
 							<i class="fas fa-lock"></i>
