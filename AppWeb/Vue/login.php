@@ -30,7 +30,7 @@
 					<form>
 						<div class="row">
 							<i class="far fa-user"></i>
-							<input type="email" class="input" placeholder="Adresse Mail" id="login">
+							<input type="email" class="input" placeholder="Login" id="login">
 						</div>
 						<div class="row">
 							<i class="fas fa-lock"></i>
