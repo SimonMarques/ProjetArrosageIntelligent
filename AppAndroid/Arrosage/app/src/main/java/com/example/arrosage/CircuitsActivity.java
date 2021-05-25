@@ -86,11 +86,72 @@ public class CircuitsActivity extends AppCompatActivity {
         setOnOffSwitch(simpleSwitch, "http://projet18.ddns.net:44480/Json/Json_Statut/Vanne.json");
         setOnOffSwitch(simpleSwitch2, "http://projet18.ddns.net:44480/Json/Json_Statut/Vanne2.json");
 
-        if(!isProgrammed){
-            setDateAndTime(dateVanne1,heureDebutVanne1,  heureFinVanne1, "1", vanne);
+
+        //setDateAndTime(dateVanne1,heureDebutVanne1,  heureFinVanne1, "1", vanne);
+        IotConnectionDate myTaskDate = new IotConnectionDate("1");
+        myTaskDate.execute();
+
+        Object resultTaskDate = null;
+        try {
+            resultTaskDate= myTaskDate.get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        if(!isProgrammed2){
-            setDateAndTime(dateVanne2,heureDebutVanne2,  heureFinVanne2, "2", vanne2);
+
+        String resDate = resultTaskDate.toString();
+
+        try {
+            // get JSONObject from JSON file
+            JSONObject objDate = new JSONObject(resDate);
+
+            vanne.setId(objDate.getString("idVanne"));
+            vanne.setDate(objDate.getString("date"));
+            vanne.setHeureDebut(objDate.getString("heureDebut"));
+            vanne.setHeureFin(objDate.getString("heureFin"));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        dateVanne1.setText(vanne.getDate());
+        heureDebutVanne1.setText(vanne.getHeureDebut());
+        heureFinVanne1.setText(vanne.getHeureFin());
+
+        //setDateAndTime(dateVanne2,heureDebutVanne2,  heureFinVanne2, "2", vanne2);
+
+        if(!isProgrammed){
+            IotConnectionDate myTaskDate2 = new IotConnectionDate("2");
+            myTaskDate2.execute();
+
+            Object resultTaskDate2 = null;
+            try {
+                resultTaskDate2= myTaskDate.get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            String resDate2 = resultTaskDate2.toString();
+
+            try {
+                // get JSONObject from JSON file
+                JSONObject objDate2 = new JSONObject(resDate2);
+
+                vanne2.setId(objDate2.getString("idVanne"));
+                vanne2.setDate(objDate2.getString("date"));
+                vanne2.setHeureDebut(objDate2.getString("heureDebut"));
+                vanne2.setHeureFin(objDate2.getString("heureFin"));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            dateVanne2.setText(vanne2.getDate());
+            heureDebutVanne2.setText(vanne2.getHeureDebut());
+            heureFinVanne2.setText(vanne2.getHeureFin());
         }
 
 
